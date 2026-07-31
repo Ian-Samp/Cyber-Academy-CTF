@@ -68,6 +68,7 @@ Para validar a sua conexão com a rede do Ficticious Bank, siga as etapas a segu
 3 - A flag de resposta desse desafio estará na página inicial e no título da página
 #### 🧭 Exploração
 Abrindo o link da Fictious Bank, nos deparamos com a Flag na página inicial:
+
 ![](Prints/Pasted%20image%2020260729014843.png)
 
 #### 🚩 Flag
@@ -87,13 +88,20 @@ Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas 
 Navegue por todos os links do site do Ficticious Bank (https://www.ficticiousbank.com) e identifique os dados dos colaboradores que constam no site. Quantos colaboradores (chefes, executivos, especialistas) você identificou no total? Padrão de resposta: XX (Ex. 99)
 #### 🧭 Exploração
 Colei o link indicado na URL e naveguei por todos os links clicáveis no site, prestando atenção em qualquer menção à colaboradores.
-Em um dos links encontrei:
-![](Prints/Pasted%image%20260729015402.png)
-Pensei em já responder "7" como Flag, mas lembrei de ter visto alguns ícones de perfil na página inicial, então voltei para verificar:
-![](Prints/Pasted%image%20260729020202.png)
+Em um dos links encontrei:  
+
+![](Prints/Pasted%20image%2020260729015402.png)
+
+Pensei em já responder "7" como Flag, mas lembrei de ter visto alguns ícones de perfil na página inicial, então voltei para verificar:  
+
+![](Prints/Pasted%20image%2020260729020202.png)
 #### 🚩 Flag
+Imediatamente pensei: "É realmente necessário manter todos esses e-mail de contato à mostra no site, para qualquer um ver?". Minha intuição se demonstrou correta,
+como vamos ver a seguir.
 
+`Flag: 11`
 
+---
 ### Mapeando E-mails - 50 pts
 ### Padrão de e-mails - 50 pts
 ### Buscando credenciais de colaboradores - 50 pts
