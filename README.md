@@ -51,20 +51,50 @@ A partir da 2ª resposta, você perderá 1 ponto para cada tentativa incorreta e
 Serão disponibilizadas dicas para cada desafio. As dicas podem ser requisitadas para auxiliar na resolução da atividade e não serão descontados pontos por isto; entretanto, o número de dicas solicitadas será o primeiro critério de desempate entre os participantes.
 
 ---
-## Handshake!
+## 🤝 Handshake!
 - 2.1. [SYN - Boas Vindas](#syn-boas-vindas-20-pts)
 - 2.2. [SYN/ACK - Conexão com a rede do Ficticious Bank](#syn/ack-conexão-com-a-rede-do-ficticious-bank-20pts)
+---
 ### SYN - Boas Vindas - 20 pts
 Olá! Seja bem-vindo! Esperamos que você nos ajude a encontrar as falhas que podem ter iniciado este ataque! Precisamos corrigi-las o quanto antes para restaurar nossos backups em segurança. Como sinal de boa fé, segue a sua primeira FLAG do Game: `GoHacking{BemVindoJovemPadawan}` Envie essa flag como resposta no campo abaixo.
 #### 🚩 Flag
 `Flag: GoHacking{BemVindoJovemPadawan}`
 
+---
 ### SYN/ACK - Conexão com a rede do Ficticious Bank - 20 pts
 Para validar a sua conexão com a rede do Ficticious Bank, siga as etapas a seguir: 
 1 - Abra o seu navegador/browser; 
 2 - Acesse a página https://www.ficticiousbank.com 
 3 - A flag de resposta desse desafio estará na página inicial e no título da página
-#### Exploração
+#### 🧭 Exploração
+Abrindo o link da Fictious Bank, nos deparamos com a Flag na página inicial:
+![](Prints/Pasted%20image%2020260729014843.png)
 
 #### 🚩 Flag
+Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas começando!
+
 `Flag: GoHacking{ToNaRedeDoFicticiousBank}`
+
+---
+## 🔐 Proteja suas senhas!
+- 3.1. [Identificando colaboradores](#identificando-colaboradores-50-pts)
+- 3.2. [Mapeando E-mails](#mapeando-e-mails-50-pts)
+- 3.3. [Padrão de e-mails](#padrão-de-e-mails-50-pts)
+- 3.4. [Buscando credenciais de colaboradores](#buscando-credenciais-de-colaboradores-50-pts)
+- 3.5. [Reutilização de senhas - 50 pts](#reutilização-de-senhas-50-pts)
+---
+### Identificando colaboradores - 50 pts
+Navegue por todos os links do site do Ficticious Bank (https://www.ficticiousbank.com) e identifique os dados dos colaboradores que constam no site. Quantos colaboradores (chefes, executivos, especialistas) você identificou no total? Padrão de resposta: XX (Ex. 99)
+#### 🧭 Exploração
+Colei o link indicado na URL e naveguei por todos os links clicáveis no site, prestando atenção em qualquer menção à colaboradores.
+Em um dos links encontrei:
+![](Prints/Pasted%image%20260729015402.png)
+Pensei em já responder "7" como Flag, mas lembrei de ter visto alguns ícones de perfil na página inicial, então voltei para verificar:
+![](Prints/Pasted%image%20260729020202.png)
+#### 🚩 Flag
+
+
+### Mapeando E-mails - 50 pts
+### Padrão de e-mails - 50 pts
+### Buscando credenciais de colaboradores - 50 pts
+### Reutilização de senhas - 50 pts
