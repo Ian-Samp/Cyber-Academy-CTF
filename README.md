@@ -2,7 +2,7 @@
 
 > **Data:** 07/2026  
 > **Pontuação:** 2010 pts / 0 Dicas  
-> **Scoreboard:** 15º posição de 778 participantes  
+> **Scoreboard:** 15º posição de 789 participantes  
 > **Categorias:** CSIRT, Web Exploitation, Log Analysis,
 
 ---
@@ -56,9 +56,15 @@ Serão disponibilizadas dicas para cada desafio. As dicas podem ser requisitadas
 - 2.2. [SYN/ACK - Conexão com a rede do Ficticious Bank](#syn/ack-conexão-com-a-rede-do-ficticious-bank-20pts)
 ### SYN - Boas Vindas - 20 pts
 Olá! Seja bem-vindo! Esperamos que você nos ajude a encontrar as falhas que podem ter iniciado este ataque! Precisamos corrigi-las o quanto antes para restaurar nossos backups em segurança. Como sinal de boa fé, segue a sua primeira FLAG do Game: `GoHacking{BemVindoJovemPadawan}` Envie essa flag como resposta no campo abaixo.
+#### 🚩 Flag
+`Flag: GoHacking{BemVindoJovemPadawan}`
 
 ### SYN/ACK - Conexão com a rede do Ficticious Bank - 20 pts
 Para validar a sua conexão com a rede do Ficticious Bank, siga as etapas a seguir: 
 1 - Abra o seu navegador/browser; 
 2 - Acesse a página https://www.ficticiousbank.com 
 3 - A flag de resposta desse desafio estará na página inicial e no título da página
+#### Exploração
+
+#### 🚩 Flag
+`Flag: GoHacking{ToNaRedeDoFicticiousBank}`
