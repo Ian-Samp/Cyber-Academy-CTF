@@ -52,8 +52,8 @@ Serão disponibilizadas dicas para cada desafio. As dicas podem ser requisitadas
 
 ---
 ## 🤝 Handshake!
-- 2.1. [SYN - Boas Vindas](#syn-boas-vindas-20-pts)
-- 2.2. [SYN/ACK - Conexão com a rede do Ficticious Bank](#syn/ack-conexão-com-a-rede-do-ficticious-bank-20pts)
+- 2.1. [SYN - Boas Vindas](#syn---boas-vindas---20-pts)
+- 2.2. [SYN/ACK - Conexão com a rede do Ficticious Bank](#synack---conexão-com-a-rede-do-ficticious-bank---20pts)
 ---
 ### SYN - Boas Vindas - 20 pts
 Olá! Seja bem-vindo! Esperamos que você nos ajude a encontrar as falhas que podem ter iniciado este ataque! Precisamos corrigi-las o quanto antes para restaurar nossos backups em segurança. Como sinal de boa fé, segue a sua primeira FLAG do Game: `GoHacking{BemVindoJovemPadawan}` Envie essa flag como resposta no campo abaixo.
@@ -78,11 +78,11 @@ Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas 
 
 ---
 ## 🔐 Proteja suas senhas!
-- 3.1. [Identificando colaboradores](#identificando-colaboradores-50-pts)
-- 3.2. [Mapeando E-mails](#mapeando-e-mails-50-pts)
-- 3.3. [Padrão de e-mails](#padrão-de-e-mails-50-pts)
-- 3.4. [Buscando credenciais de colaboradores](#buscando-credenciais-de-colaboradores-50-pts)
-- 3.5. [Reutilização de senhas - 50 pts](#reutilização-de-senhas-50-pts)
+- 3.1. [Identificando colaboradores](#identificando-colaboradores---50-pts)
+- 3.2. [Mapeando E-mails](#mapeando-e-mails---50-pts)
+- 3.3. [Padrão de e-mails](#padrão-de-e-mails---50-pts)
+- 3.4. [Buscando credenciais de colaboradores](#buscando-credenciais-de-colaboradores---50-pts)
+- 3.5. [Reutilização de senhas - 50 pts](#reutilização-de-senhas---50-pts)
 ---
 ### Identificando colaboradores - 50 pts
 Navegue por todos os links do site do Ficticious Bank (https://www.ficticiousbank.com) e identifique os dados dos colaboradores que constam no site. Quantos colaboradores (chefes, executivos, especialistas) você identificou no total? Padrão de resposta: XX (Ex. 99)
