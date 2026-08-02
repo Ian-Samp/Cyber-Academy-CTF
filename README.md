@@ -97,7 +97,7 @@ Pensei em já responder "7" como Flag, mas lembrei de ter visto alguns ícones d
 
 ![](Prints/Pasted%20image%2020260729020202.png)
 #### 🚩 Flag
-Imediatamente pensei: "É realmente necessário manter todos esses e-mail de contato à mostra no site, para qualquer um ver?". Minha intuição se demonstrou correta,
+Imediatamente pensei: "É realmente necessário manter todos esses e-mails de contato à mostra no site, para qualquer um ver?". Minha intuição se demonstrou correta,
 como vamos ver a seguir.  
 
 `Flag: 11`
