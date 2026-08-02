@@ -72,7 +72,7 @@ Abrindo o link da Fictious Bank, nos deparamos com a Flag na página inicial:
 ![](Prints/Pasted%20image%2020260729014843.png)
 
 #### 🚩 Flag
-Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas começando!
+Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas começando!  
 
 `Flag: GoHacking{ToNaRedeDoFicticiousBank}`
 
@@ -97,12 +97,81 @@ Pensei em já responder "7" como Flag, mas lembrei de ter visto alguns ícones d
 ![](Prints/Pasted%20image%2020260729020202.png)
 #### 🚩 Flag
 Imediatamente pensei: "É realmente necessário manter todos esses e-mail de contato à mostra no site, para qualquer um ver?". Minha intuição se demonstrou correta,
-como vamos ver a seguir.
+como vamos ver a seguir.  
 
 `Flag: 11`
 
 ---
 ### Mapeando E-mails - 50 pts
+Qual é o e-mail da consultora Alessandra Melo?  
+Padrão de resposta: xxxxxx@xxxxx.xxxxx
+#### 🧭 Exploração
+![](Prints/Pasted%20image%2020260729020432.png)
+
+Abaixo do perfil de cada colaborador temos um ícone de cartão de negócios. Passar o mouse por cima revela um link para o e-mail de cada um.
+#### 🚩 Flag
+`Flag: alessandra.melo@ficticiousbank.com`
+
+---
 ### Padrão de e-mails - 50 pts
+Pelos e-mails identificados, qual seria o provável e-mail do CEO do Ficticious Bank?  
+Padrão de resposta: xxxxxxx@xxxxx.xxxxx
+#### 🧭 Exploração
+Analisando os e-mails disponíveis na página, um padrão é faciilmente identificável. Todos os caloboradores possuem o e-mail que segue a estrutura:  
+`primeiro_nome.segundo_nome@ficticiousbank.com`
+#### 🚩 Flag
+Além de qualquer visitante do site ter acesso aos e-mails corporativos da empresa, os e-mails não divulgados podem ser deduzidos, incluindo do próprio CEO José Fernandes. Essa prática abre brecha para que um atacante faça uso de táticas de phishing mais avançadas, como o Spear Phishing, como iremos ver mais adiante. 
+
+`Flag: jose.fernandes@ficticiousbank.com`
+
+---
 ### Buscando credenciais de colaboradores - 50 pts
+Recentemente, o grupo “*P3PP4 H4CK3RS*” divulgou dados de centenas de usuários. O grupo alega possuir informações de mais de 1 milhão de pessoas; entretanto, a fonte não foi identificada. Nossa equipe de Threat Intelligence (Inteligência de Ameaças) conseguiu acesso ao arquivo de demonstração publicado pelos hackers e acredita que os dados possam pertencer a algum aplicativo de entretenimento. Link dos dados: https://pastebin.com/9rm2KeXd Senha de acesso: z2iTHAcrp2 Analise os dados publicados pelos hackers e identifique se algum colaborador do Ficticious Bank teve sua credencial vazada. A resposta deverá ser a senha do usuário, conforme consta nos dados expostos. Exemplo: MinhaSenhaExposta
+
+**Target:** https://pastebin.com/9rm2KeXd
+#### 🧭 Exploração
+![](Pasted%20image%2020260729021013.png)
+
+O banco de dados divulgado pelo grupo hacker possui mais de 33.000 (trinta e três mil) linhas de dados extremamente sensíveis de milhares de pessoas (desde nome completo, e-mail e senhas, até CPF e tipo sanguíneo).  
+- Para procurar optei utilizar o comando de navegador _CTRL + F_ e pesquisar o nome e sobrenome de cada colaborador;
+- Após não achar nada, pesquisei por _"@ficticiousbank.com"_, pois se o e-mail vazado fosse o corporativo que encontrei no site, encontraria qualquer colaborador rapidamente, mas não funcionou, indicando que o e-mail vazado se tratava de um pessoal;
+- Pensei por um tempo e percebi um erro de premissa que cometi no início da busca: havia assumido como verdade que o sobrenome no perfil site seria exatamente o
+segundo sobrenome do colaborador. Mas isso poderia simplesmente ser falso;
+- Voltei ao primeiro passo e pesquisei apenas o primeiro nome de cada colaborador, onde eventualmente encontrei o perfil de Martín Paulo Dias.
+
+![](Pasted%20image%2020260729022311.png)
+#### 🚩 Flag
+`Flag: kRzM36SU9e`
+
+---
 ### Reutilização de senhas - 50 pts
+Oh nãoooo… Aparentemente, um de nossos colaboradores teve sua credencial vazada pelo grupo “P3PP4 H4CK3RS”. Sempre orientamos o uso de senhas fortes e diferentes para acesso aos sistemas do banco, então, em teoria, ele não deveria reutilizar as mesmas credenciais no e-mail corporativo… Mas será que isso realmente aconteceu? Melhor conferir. Vai que essa conta também foi comprometida. Durante a análise da caixa de entrada do usuário, foi identificado um e-mail suspeito que chama atenção pelo assunto com tom de urgência, solicitando uma verificação imediata de segurança e alertando sobre possível suspensão da conta. Seu objetivo: Acessar a conta de e-mail do usuário e identificar qual é o endereço de e-mail do remetente da mensagem cujo assunto indica uma “Ação Urgente” relacionada à segurança da conta. A resposta deve ser enviada no seguinte formato: exemplo@dominio.com
+
+**Target:** https://webmail.ficticiousbank.com
+#### 🧭 Exploração
+![](Pasted%20image%2020260729022835.png)
+
+Já possuo o endereço de e-mail corporativo de Martín Dias, então tento ele em conjunto de sua senha vazada e consigo acesso.  
+`martin.dias@ficticiousbank.com`  
+`Flag: kRzM36SU9e`
+
+![](Pasted%20image%2020260729023025.png)
+
+Identifiquei a mensagem suspeita com o assunto indicado logo no topo da caixa de e-mail. 
+#### 🚩 Flag
+O atacante utiliza a tática de criar sensção urgência para diminuir o senso crítico do alvo:
+- "Ação Urgente"
+- "imediatamente"
+- "dentro de 24 horas"
+- "suspensão da conta"
+
+`Flag seg.info@secure-auth-portal.com`
+
+---
+## 🎣 Investigando o phishing
+
+## 🪵 Logs de um servidor web
+
+## 🕹️ Comando e Controle (C2)
+
+## 🚩 Conclusão
