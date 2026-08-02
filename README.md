@@ -130,7 +130,7 @@ Recentemente, o grupo “*P3PP4 H4CK3RS*” divulgou dados de centenas de usuár
 
 **Target:** https://pastebin.com/9rm2KeXd
 #### 🧭 Exploração
-![](Pasted%20image%2020260729021013.png)
+![](Prints/Pasted%20image%2020260729021013.png)
 
 O banco de dados divulgado pelo grupo hacker possui mais de 33.000 (trinta e três mil) linhas de dados extremamente sensíveis de milhares de pessoas (desde nome completo, e-mail e senhas, até CPF e tipo sanguíneo).  
 - Para procurar optei utilizar o comando de navegador _CTRL + F_ e pesquisar o nome e sobrenome de cada colaborador;
@@ -139,7 +139,7 @@ O banco de dados divulgado pelo grupo hacker possui mais de 33.000 (trinta e tr�
 segundo sobrenome do colaborador. Mas isso poderia simplesmente ser falso;
 - Voltei ao primeiro passo e pesquisei apenas o primeiro nome de cada colaborador, onde eventualmente encontrei o perfil de Martín Paulo Dias.
 
-![](Pasted%20image%2020260729022311.png)
+![](Prints/Pasted%20image%2020260729022311.png)
 #### 🚩 Flag
 `Flag: kRzM36SU9e`
 
@@ -149,13 +149,13 @@ Oh nãoooo… Aparentemente, um de nossos colaboradores teve sua credencial vaza
 
 **Target:** https://webmail.ficticiousbank.com
 #### 🧭 Exploração
-![](Pasted%20image%2020260729022835.png)
+![](Prints/Pasted%20image%2020260729022835.png)
 
 Já possuo o endereço de e-mail corporativo de Martín Dias, então tento ele em conjunto de sua senha vazada e consigo acesso.  
 `martin.dias@ficticiousbank.com`  
 `Flag: kRzM36SU9e`
 
-![](Pasted%20image%2020260729023025.png)
+![](Prints/Pasted%20image%2020260729023025.png)
 
 Identifiquei a mensagem suspeita com o assunto indicado logo no topo da caixa de e-mail. 
 #### 🚩 Flag
@@ -165,7 +165,7 @@ O atacante utiliza a tática de criar sensção urgência para diminuir o senso 
 - "dentro de 24 horas"
 - "suspensão da conta"
 
-`Flag seg.info@secure-auth-portal.com`
+`Flag: seg.info@secure-auth-portal.com`
 
 ---
 ## 🎣 Investigando o phishing
