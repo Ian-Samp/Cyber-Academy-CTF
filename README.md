@@ -51,6 +51,7 @@ A partir da 2ª resposta, você perderá 1 ponto para cada tentativa incorreta e
 Serão disponibilizadas dicas para cada desafio. As dicas podem ser requisitadas para auxiliar na resolução da atividade e não serão descontados pontos por isto; entretanto, o número de dicas solicitadas será o primeiro critério de desempate entre os participantes.
 
 ---
+
 ## 🤝 Handshake!
 - 2.1. [SYN - Boas Vindas](#syn---boas-vindas---20-pts)
 - 2.2. [SYN/ACK - Conexão com a rede do Ficticious Bank](#synack---conexão-com-a-rede-do-ficticious-bank---20pts)
@@ -77,6 +78,7 @@ Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas 
 `Flag: GoHacking{ToNaRedeDoFicticiousBank}`
 
 ---
+
 ## 🔐 Proteja suas senhas!
 - 3.1. [Identificando colaboradores](#identificando-colaboradores---50-pts)
 - 3.2. [Mapeando E-mails](#mapeando-e-mails---50-pts)
@@ -159,19 +161,129 @@ Já possuo o endereço de e-mail corporativo de Martín Dias, então tento ele e
 
 Identifiquei a mensagem suspeita com o assunto indicado logo no topo da caixa de e-mail. 
 #### 🚩 Flag
+Mesmo que a senha de Matín (_kRzM36SU9e_) não seja fraca ou previsível, a sua força é minimizada quando ele repete esta mesma senha em vários serviços.
+Como Martín e os outros colaboradores da Ficticious Bank poderiam melhorar suas senhas:
+1. A senha atual de Martín utiliza letras maiúsculas, minúsculas e números. Isto já é bom, mas caracteres especiais (!@#$%) ou uma senha maior poderiam torná-la ótima;
+2. Utilizar MFA (autentificação em múltiplos fatores);
+3. O principal: não reutilizar a mesma senha. O ideal seria possuir um gerenciador de senhas seguro (evitando os gerenciadores presentes em navegadores) com uma única senha poderosa, enquanto outros serviços possuem senhas aleatórias ou outros meios de autenticação.
+
+`Flag: seg.info@secure-auth-portal.com`
+
+---
+
+## 🎣 Investigando o phishing
+- 4.1. [E-mail suspeito](#e-mail-suspeito---50-pts)
+- 4.2. [Analisando e-mail com IA](#analisando-e-mail-com-ia---50-pts)
+- 4.3. [Houston, temos um problema!](#houston-temos-um-problema---50-pts)
+- 4.4. [Vamos à pescaria!](#vamos-à-pescaria---50-pts)
+- 4.5. [Alterando parâmetros](#alterando-parâmetros---100-pts)
+- 4.6. [Hashes](#hashes---50-pts)
+- 4.7. [Quebrando hashes 1](#quebrando-hashes-1---50-pts)
+- 4.8. [Quebrando hashes 2](#quebrando-hashes-2---50-pts)
+- 4.9. [O lado negro da força...](#o-lado-negro-da-força---100-pts)
+
+---
+### E-mail suspeito - 50 pts
+Sim, mesmo falando várias e várias vezes sobre os riscos de usar senhas repetidas.... a conta de um de nossos colaboradores foi comprometida! Agora precisamos constatar se esse acesso foi utilizado para alguma atividade maliciosa. Utilizando o acesso obtido nos desafios anteriores, verifique se há algum e-mail suspeito na caixa de entrada, você consegue identificar e-mails de phishing? A resposta é o assunto do e-mail.
+
+**Target:** https://webmail.ficticiousbank.com
+#### 🚩 Flag
 O atacante utiliza a tática de criar sensção urgência para diminuir o senso crítico do alvo:
 - "Ação Urgente"
 - "imediatamente"
 - "dentro de 24 horas"
 - "suspensão da conta"
 
-`Flag: seg.info@secure-auth-portal.com`
+`Flag: Ação Urgente: Verificação de Segurança da Conta`
 
 ---
-## 🎣 Investigando o phishing
+### Analisando e-mail com IA - 50 pts
+Parece que temos algo suspeito na caixa de e-mails enviados... Aparentemente, alguém utilizou esse acesso para enviar uma comunicação para outros colaboradores da empresa. O link exibido no corpo do e-mail não corresponde ao destino real. Analise a mensagem e identifique para qual URL o link realmente aponta. A resposta deve ser informada sem o https:// e sem barra "/" no final.
+#### 🧭 Exploração
+
+#### 🚩 Flag
+
+
+---
+### Houston, temos um problema! - 50 pts
+
+### Vamos à pescaria! - 50 pts
+
+### Alterando parâmetros - 100 pts
+
+### Hashes - 50 pts
+
+### Quebrando hashes 1 - 50 pts
+
+### Quebrando hashes 2 - 50 pts
+
+### O lado negro da força... - 100 pts
+
+---
 
 ## 🪵 Logs de um servidor web
+- 5.1. [Entradas no Log](#entradas-no-log---50-pts)
+- 5.2. [Primeiro Cliente](#primeiro-cliente---50-pts)
+- 5.3. [Horário do Primeiro Acesso](#horário-do-primeiro-acesso---50-pts)
+- 5.4. [Tamanho da Imagem](#tamanho-da-imagem---50-pts)
+- 5.5. [Diferentes Clientes](#diferentes-clientes---100-pts)
+- 5.6. [Campeão de Acesso](#campeão-de-acesso---100-pts)
+- 5.7. [WHOIS 01](#whois-01---50-pts)
+- 5.8. [WHOIS 02](#whois-02---50-pts)
+- 5.9. [Scan Web](#scan-web---100-pts)
+- 5.10. [Varredura](#varredura---100-pts)
+- 5.11. [Atlantis](#atlantis---50-pts)
+- 5.12. [Tipo de Atividade Ofensiva](#tipo-de-atividade-ofensiva---50-pts)
+- 5.13. [Cyber Kill Chain](#cyber-kill-chain---50-pts)
+
+---
+
+### Entradas no Log - 50 pts
+
+### Primeiro Cliente - 50 pts
+
+### Horário do Primeiro Acesso - 50 pts
+
+### Tamanho da Imagem - 50 pts
+
+### Diferentes Clientes - 100 pts
+
+### Campeão de Acesso - 100 pts
+
+### WHOIS 01 - 50 pts
+
+### WHOIS 02 - 50 pts
+
+### Scan Web - 100 pts
+
+### Varredura - 100 pts
+
+### Atlantis - 50 pts
+
+### Tipo de Atividade Ofensiva - 50 pts
+
+### Cyber Kill Chain - 50 pts
+
+---
 
 ## 🕹️ Comando e Controle (C2)
+- 6.1. [Comando de Instalação](#comando-de-instalação---20-pts)
+- 6.2. [O que o mestre mandar...](#o-que-o-mestre-mandar---50-pts)
+- 6.3. [Mapeando a C2 inimiga](#mapeando-a-c2-inimiga---50-pts)
+- 6.4. [Métodos HTTP](#métodos-http---100-pts)
+- 6.5. [Servidores Comprometidos](#servidores-comprometidos---100-pts)
 
+---
+
+### Comando de Instalação - 20 pts
+
+### O que o mestre mandar... - 50 pts
+
+### Mapeando a C2 inimiga - 50 pts
+
+### Métodos HTTP - 100 pts
+
+### Servidores Comprometidos - 100 pts
+
+---
 ## 🚩 Conclusão
