@@ -1,9 +1,8 @@
-# Cyber Academy - Capture The Flag
+<img width="971" height="144" alt="image" src="https://github.com/user-attachments/assets/122502aa-0e6f-4d86-bac8-81190ebc11b1" />  
 
+> **Capture The Flag**  
 > **Data:** 07/2026  
-> **Pontuação:** 2010 pts / 0 Dicas  
-> **Scoreboard:** 15º posição de 821 participantes  
-> **Categorias:** CSIRT, Web Exploitation, Log Analysis,
+> **Categorias:** CSIRT, Phishing, Social Engeneering, Web Exploitation, Log Analysis
 
 ---
 
@@ -22,7 +21,7 @@
 ## 🔍 Introdução
 
 * 1.1. [Write-Up](#write-up)
-* 1.2. [Contexto](#contexto)
+* 1.2. [Cenário](#cenário)
 * 1.3. [Regras](#regras)
     * 1.3.1. [Desafios](#desafios)
     * 1.3.2. [Respostas incorretas](#respostas-incorretas)
@@ -32,7 +31,7 @@
 Este documento reúne o write-up do Capture The Flag (CTF) de encerramento do curso Cyber Academy 2026, promovido pela Febraban em parceria com a GoHacking.
 O objetivo desta documentação é registrar a metodologia e o raciocínio analítico empregados na resolução dos desafios. Mais do que apresentar apenas as respostas finais (flags), busquei detalhar todo o processo de investigação, os percalços encontrados pelo caminho e as estratégias utilizadas para superar cada obstáculo.
 
-### Contexto
+### Cenário
 O grupo "*P3PP4 H4CK3R5*" tem divulgado arquivos contendo dados pessoais e credenciais de clientes e funcionários do Ficticious Bank (FB), tais vazamentos coincidem com alguns incidentes de segurança identificados pelo nosso CSIRT.
 
 Após uma investigação inicial, foi possível identificar uma estação de trabalho de um dos colaboradores do banco se comunicando com um site suspeito (provável Central de Comando e Controle - C2 do grupo de hackers), além de algumas evidências de exfiltração de dados. Acreditamos que esse foi o vetor inicial do ataque.
@@ -84,7 +83,7 @@ Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas 
 - 3.2. [Mapeando E-mails](#mapeando-e-mails---50-pts)
 - 3.3. [Padrão de e-mails](#padrão-de-e-mails---50-pts)
 - 3.4. [Buscando credenciais de colaboradores](#buscando-credenciais-de-colaboradores---50-pts)
-- 3.5. [Reutilização de senhas - 50 pts](#reutilização-de-senhas---50-pts)
+- 3.5. [Reutilização de senhas](#reutilização-de-senhas---50-pts)
 ---
 ### Identificando colaboradores - 50 pts
 Navegue por todos os links do site do Ficticious Bank (https://www.ficticiousbank.com) e identifique os dados dos colaboradores que constam no site. Quantos colaboradores (chefes, executivos, especialistas) você identificou no total? Padrão de resposta: XX (Ex. 99)
@@ -200,15 +199,45 @@ O atacante utiliza a tática de criar sensção urgência para diminuir o senso 
 ### Analisando e-mail com IA - 50 pts
 Parece que temos algo suspeito na caixa de e-mails enviados... Aparentemente, alguém utilizou esse acesso para enviar uma comunicação para outros colaboradores da empresa. O link exibido no corpo do e-mail não corresponde ao destino real. Analise a mensagem e identifique para qual URL o link realmente aponta. A resposta deve ser informada sem o https:// e sem barra "/" no final.
 #### 🧭 Exploração
+Explorando a caixa de mensagens enviadas pelo e-mail de Martín encontramos a seguinte mensagem:
 
+![](Print/Pasted%20image%2020260729025809.png)
+
+A URL aparente parece levar para um portal oficial do setor de RH do banco, mas analisando o link real encontramos algo mais suspeito:  
+https://m2va8hds01.execute-api.us-east-1.amazonaws.com/
 #### 🚩 Flag
+É interessante notar como todo esta cadeia de ataque poderia ter sido quebrada e evitada se Martín apenas seguisse a política de senhas da organização ou as práticas que detalhei em [3.5. Reutilização de senhas](#reutilização-de-senhas---50-pts).  
+Importante destacar que isso não faz de Martín "culpado" pelo incidente, mas precisamos entender onde houve a falha para evitar um evento futuro.
 
+`Flag: m2va8hds01.execute-api.us-east-1.amazonaws.com`
 
 ---
 ### Houston, temos um problema! - 50 pts
+A conta comprometida foi utilizada e os atacantes enviaram e-mails para outros colaboradores... Das opções abaixo, qual representa a técnica utilizada pelos atacantes para tentar comprometer credenciais de outros usuários?
+#### 🚩 Flag
+Como comentei em um desafio anterior, o ataque se utiliza de _Spear Phishing_. Esta técnica ofensiva consiste em uma versão mais avançada de Phishing, pois além de realizar spoofing e gatilhos emocionais, também personalizam a mensagem para aumentar mais ainda a chance de efetuar o roubo de dados. Isso tudo é facilitado pelas informações acessíveis por OSINT.
 
+`Flag: Spear Phishing`
+
+---
 ### Vamos à pescaria! - 50 pts
+Vamos ver se é possível identificar quais colaboradores foram vítimas dessa campanha de phishing e tiveram suas credenciais vazadas. Acesse o link do e-mail malicioso e veja se encontra alguma informação útil no código da página de login. Para visualizar o código da página, no navegador, clique com o botão direito do mouse em alguma parte do site e selecione opções como: "Exibir código fonte da página" "Inspecionar" "Visualizar código" A flag estará em um comentário no código
 
+**Target:** https://m2va8hds01.execute-api.us-east-1.amazonaws.com
+#### 🧭 Exploração
+O link redireciona para o site:
+
+![](Prints/Pasted%20image%2020260729030348.png)
+
+O site é apenas um formulário simples, com entradas para credenciais (usuário e senha), e possui a paleta de cor do personagem Papai Pig, do desenho Peppa Pig, sendo possivelmente uma indicação que o ataque foi especificamente realizado pelo hacker "_P4P41 P1G_", membro do _P3PPA H4CK3RS_.  
+Inspecionando o site é possível notar a mensagem comentada entre o código HTML:
+```//TODO:Precisamos melhorar a action de listar registros GoHacking{CaiuNaRedeÉPeixe}```
+#### 🚩 Flag
+De início pode parecer difícil acreditar que alguém confiaria as credenciais a um site como este, mas é preciso levar em consideração que o e-mail com o link malicioso foi enviado diretamente pelo e-mail de Martín, um colaborador da empresa. Ou seja, uma fonte "confiável". Além de tocar em um assunto importante com tom de urgência, como analisamos em outras mensagens anteriores.
+
+`Flag: GoHacking{CaiuNaRedeÉPeixe}`
+
+---
 ### Alterando parâmetros - 100 pts
 
 ### Hashes - 50 pts
