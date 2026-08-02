@@ -2,7 +2,7 @@
 
 > **Data:** 07/2026  
 > **Pontuação:** 2010 pts / 0 Dicas  
-> **Scoreboard:** 15º posição de 789 participantes  
+> **Scoreboard:** 15º posição de 821 participantes  
 > **Categorias:** CSIRT, Web Exploitation, Log Analysis,
 
 ---
