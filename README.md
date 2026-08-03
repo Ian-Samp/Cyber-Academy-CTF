@@ -201,7 +201,7 @@ Parece que temos algo suspeito na caixa de e-mails enviados... Aparentemente, al
 #### 🧭 Exploração
 Explorando a caixa de mensagens enviadas pelo e-mail de Martín encontramos a seguinte mensagem:
 
-![](Print/Pasted%20image%2020260729025809.png)
+![](Prints/Pasted%20image%2020260729025809.png)
 
 A URL aparente parece levar para um portal oficial do setor de RH do banco, mas analisando o link real encontramos algo mais suspeito:  
 https://m2va8hds01.execute-api.us-east-1.amazonaws.com/
@@ -231,7 +231,9 @@ O link redireciona para o site:
 
 O site é apenas um formulário simples, com entradas para credenciais (usuário e senha), e possui a paleta de cor do personagem Papai Pig, do desenho Peppa Pig, sendo possivelmente uma indicação que o ataque foi especificamente realizado pelo hacker "_P4P41 P1G_", membro do _P3PPA H4CK3RS_.  
 Inspecionando o site é possível notar a mensagem comentada entre o código HTML:
-```//TODO:Precisamos melhorar a action de listar registros GoHacking{CaiuNaRedeÉPeixe}```
+```html
+<!-- TODO: Precisamos melhorar a action de listar registros GoHacking{CaiuNaRedeÉPeixe} -->
+```
 #### 🚩 Flag
 De início pode parecer difícil acreditar que alguém confiaria as credenciais a um site como este, mas é preciso levar em consideração que o e-mail com o link malicioso foi enviado diretamente pelo e-mail de Martín, um colaborador da empresa. Ou seja, uma fonte "confiável". Além de tocar em um assunto importante com tom de urgência, como analisamos em outras mensagens anteriores.
 
@@ -241,14 +243,22 @@ De início pode parecer difícil acreditar que alguém confiaria as credenciais 
 ### Alterando parâmetros - 100 pts
 Aparentemente eles utilizaram um sistema bem simples para captura de credenciais. A aplicação possui apenas um endpoint e executa as ações de acordo com o parâmetro de URL action. Envie um nome de usuário e uma senha como teste e, em seguida, altere o parâmetro action da URL para verificar se conseguimos obter alguma informação interessante.
 #### 🧭 Exploração
-Inserindo credenciais aleatórias no formulário, o site nos redireciona para a seguinte tela:
+Inserindo credenciais para teste no formulário, a aplicação envia uma requisição com o parâmetro `action=registrar`.
 <img width="1296" height="687" alt="image" src="https://github.com/user-attachments/assets/1ead83c3-b4eb-4c13-b1c7-1f2d84b99288" />  
 
-Alterando a URL de `https://m2va8hds01.execute-api.us-east-1.amazonaws.com/?action=registrar` para `https://m2va8hds01.execute-api.us-east-1.amazonaws.com/?action=listar`  
-
-Obtemos a resposta:  
+Alterando a URL de `https://m2va8hds01.execute-api.us-east-1.amazonaws.com/?action=registrar` para `https://m2va8hds01.execute-api.us-east-1.amazonaws.com/?action=listar` obtemos a resposta da API em formato _JSON_:  
 ```
-{"flag":"GoHacking{OParametroCertoAsVezesAjuda}","captura1":{"usuario":"levi.farias","hash":"7abf11935960fc499dbb5055fea98cb7"},"captura2":{"usuario":"carlos.mota","hash":"c61024d89f8d48812dc6cde58cfc1ae4664f5fc44e5f7b95f2cdaab6baefeaad"}}
+{
+  "flag": "GoHacking{OParametroCertoAsVezesAjuda}",
+  "captura1": {
+    "usuario": "levi.farias",
+    "hash": "7abf11935960fc499dbb5055fea98cb7"
+  },
+  "captura2": {
+    "usuario": "carlos.mota",
+    "hash": "c61024d89f8d48812dc6cde58cfc1ae4664f5fc44e5f7b95f2cdaab6baefeaad"
+  }
+}
 ```
 #### 🚩 Flag
 Essa lista revela que os colaboradores Levi Farias e Carlos Mota tiveram suas credenciais capturadas pelo site.
@@ -259,14 +269,13 @@ Essa lista revela que os colaboradores Levi Farias e Carlos Mota tiveram suas cr
 ### Hashes - 50 pts
 Analisando os hashes das credenciais capturadas pelos atacantes, quais das alternativas abaixo representam, respectivamente, os algoritmos de hash utilizados para armazenar as credenciais dos usuários levi.farias e carlos.mota?
 #### 🧭 Exploração
-Testando diferentes tipos de Hashs em decriptadores online eventualmente descobro a função específica de cada e no que elas traduzem.  
+Hashing é uma função matemática que transforma um dado em uma sequência alfanumérica irreversível que não possui chaves e nunca muda, geralmente utilizada em bancos de dados para evitar que senhas sejam salvas em texto claro.  
+A análise do comprimento e formato das strings de hash revela:  
 ```
-7abf11935960fc499dbb5055fea98cb7 : chewbacca01  
-c61024d89f8d48812dc6cde58cfc1ae4664f5fc44e5f7b95f2cdaab6baefeaad : 200898
+7abf11935960fc499dbb5055fea98cb7 (32 caracteres hexadecimais): Hash MD5 - Senha: chewbacca01  
+c61024d89f8d48812dc6cde58cfc1ae4664f5fc44e5f7b95f2cdaab6baefeaad (64 caracteres hexadecimais): Hash SHA256 - Senha: 200898
 ```
 #### 🚩 Flag
-Hashing é uma função matemática que transforma um dado em uma sequência alfanumérica irreversível que não possui chaves e nunca muda, geralmente utilizada em bancos de dados para evitar que senhas sejam salvas em texto claro.
-
 `Flag: MD5 | SHA256`
 
 ---
