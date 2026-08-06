@@ -327,30 +327,94 @@ Podemos concluir que um incidente grave pode ser evitável quando as lideranças
 ---
 
 ### Entradas no Log - 50 pts
+Nossa equipe do CSIRT está analisando os logs de um Servidor Web do Banco Ficticious com suspeita de ter sido atacado. O servidor está utilizando o serviço Apache e o respectivo arquivo de log é o "access.log" localizado no diretório "artefatos". Qual a quantidade de linhas (entradas) registradas no "access.log" ? Link de referência sobre o formato do arquivo de log: https://www.sumologic.com/blog/apache-access-log/  
 
+**Target:** https://download.gohacking.com.br/febraban2026/access.log
+#### 🧭 Exploração
+O link leva para um arquivo com milhares de registros de logs de requisições.
+
+![](Prints/Pasted%20image%2020260729155734.png)
+
+Antes de continuar, acessei o link para referência para aprender sobre formatos de log. Isso me ajudou bastante a entender o que cada linha estava informando.
+
+![](Prints/Pasted%20image%2020260729155917.png)
+
+Tentei utilizar a ferramenta de busca do navegador (CRTL + F). A primeira vista, parecia que todas as requisições ao servidor se tratavam de GET, então pesquisei pelo termo "_GET_" para descobrir a quantidade de linhas.
+
+![](Prints/Pasted%20image%2020260729161126.png)
+
+Coloquei a flag 27767 e obtive "Resposta Incorreta" como resposta. Essa não foi uma boa estratégia porque nada havia provado que 100% das requisições seriam realmente "GET". Isso serviu para me fazer perceber que "chutar" respostas sem ponderação me faria perder pontos em algum momento, então voltei a tratar o CTF com seriedade para não cometer esse tipo de erro novamente.
+
+Baixei os logs localmente com o comando `wget https://download.gohacking.com.br/febraban2026/access.log`, então utilizei a ferramenta de _word count_ com a opção de linhas:
+```
+$ wc -l access.log
+27823 access.log
+```
+### 🚩 Flag
+`Flag: 27823`
+
+---
 ### Primeiro Cliente - 50 pts
+Qual o endereço IP do primeiro acesso realizado ao servidor web ?
+#### 🧭 Exploração
+A data/hora exata do momento do acesso é carimbado no log e é o terceiro elemento. Como é organizado do log mais antigo ao mais recente, de cima para baixo, o primeiro acesso é o primeiro log no registro:  
+`185.153.176.43 - - [07/Nov/2022:00:19:32 +0000] "GET / HTTP/1.1" 200 3380 "-" "Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0"`
+### 🚩 Flag
+`Flag: 185.153.176.43`
 
+---
 ### Horário do Primeiro Acesso - 50 pts
+Qual é o horário (UTC) do primeiro acesso realizado ao servidor web, de acordo com o "access.log" ?
+### 🚩 Flag
+`Flag: 00:19:32`
 
+---
 ### Tamanho da Imagem - 50 pts
+Qual o tamanho (bytes) da imagem "openlogo-75.png" localizada no servidor web ?
+#### 🧭 Exploração
+Pesquisando a imagem com o comando grep, encontrei dois registros:
+```
+$ grep openlogo-75.png access.log
+185.153.176.43 - - [07/Nov/2022:00:19:37 +0000] "GET /icons/openlogo-75.png HTTP/1.1" 200 6040 "http://68.183.131.236/" "Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0"
+179.48.248.22 - - [07/Nov/2022:00:23:36 +0000] "GET /icons/openlogo-75.png HTTP/1.1" 200 6040 "http://68.183.131.236/" "Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0"
+```
+De acordo com a formatação comum de logs, o número que representa o tamanho do arquivo aparece em ambas as linhas como "6040".
+### 🚩 Flag
+`Flag: 6040`
 
+---
 ### Diferentes Clientes - 100 pts
+Quantos endereços IP distintos acessaram o servidor web ?
+#### 🧭 Exploração
+Contar os IPs um por um seria muito trabalhoso em um arquivo com quase 28 mil linhas. Demorei um bom tempo refletindo sobre 
+### 🚩 Flag
 
+
+---
 ### Campeão de Acesso - 100 pts
+#### 🧭 Exploração
+### 🚩 Flag
 
 ### WHOIS 01 - 50 pts
+#### 🧭 Exploração
 
 ### WHOIS 02 - 50 pts
+#### 🧭 Exploração
 
 ### Scan Web - 100 pts
+#### 🧭 Exploração
 
 ### Varredura - 100 pts
+#### 🧭 Exploração
 
 ### Atlantis - 50 pts
+#### 🧭 Exploração
 
 ### Tipo de Atividade Ofensiva - 50 pts
+#### 🧭 Exploração
 
 ### Cyber Kill Chain - 50 pts
+#### 🧭 Exploração
 
 ---
 
