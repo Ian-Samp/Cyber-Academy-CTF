@@ -231,7 +231,7 @@ O link redireciona para o site:
 
 O site é apenas um formulário simples, com entradas para credenciais (usuário e senha), e possui a paleta de cor do personagem Papai Pig, do desenho Peppa Pig, sendo possivelmente uma indicação que o ataque foi especificamente realizado pelo hacker "_P4P41 P1G_", membro do _P3PPA H4CK3RS_.  
 Inspecionando o site é possível notar a mensagem comentada entre o código HTML:
-```html
+``` HTML
 <!-- TODO: Precisamos melhorar a action de listar registros GoHacking{CaiuNaRedeÉPeixe} -->
 ```
 #### 🚩 Flag
@@ -348,6 +348,8 @@ Coloquei a flag 27767 e obtive "Resposta Incorreta" como resposta. Essa não foi
 Baixei os logs localmente com o comando `wget https://download.gohacking.com.br/febraban2026/access.log`, então utilizei a ferramenta de _word count_ com a opção de linhas:
 ```
 $ wc -l access.log
+```
+```
 27823 access.log
 ```
 ### 🚩 Flag
@@ -375,6 +377,8 @@ Qual o tamanho (bytes) da imagem "openlogo-75.png" localizada no servidor web ?
 Pesquisando a imagem com o comando grep, encontrei dois registros:
 ```
 $ grep openlogo-75.png access.log
+```
+```
 185.153.176.43 - - [07/Nov/2022:00:19:37 +0000] "GET /icons/openlogo-75.png HTTP/1.1" 200 6040 "http://68.183.131.236/" "Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0"
 179.48.248.22 - - [07/Nov/2022:00:23:36 +0000] "GET /icons/openlogo-75.png HTTP/1.1" 200 6040 "http://68.183.131.236/" "Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0"
 ```
@@ -395,6 +399,8 @@ Contar os IPs um por um seria muito trabalhoso em um arquivo com quase 28 mil li
       - **-u** elimina duplicatas de uma saída.
 ```
 $ cut -d ' ' -f1 access.log | sort -u
+```
+```
 179.48.248.22
 185.153.176.43
 189.1.168.183
