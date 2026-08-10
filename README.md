@@ -385,13 +385,31 @@ De acordo com a formatação comum de logs, o número que representa o tamanho d
 ---
 ### Diferentes Clientes - 100 pts
 Quantos endereços IP distintos acessaram o servidor web ?
-#### 🧭 Exploração
-Contar os IPs um por um seria muito trabalhoso em um arquivo com quase 28 mil linhas. Demorei um bom tempo refletindo sobre 
-### 🚩 Flag
 
+#### 🧭 Exploração
+Contar os IPs um por um seria muito trabalhoso em um arquivo com quase 28 mil linhas. Refleti por um bom tempo, então tive a ideia de recortar apenas o IP de cada linha, excluir repetições, e então contar quantos IPs diferentes restam. Para isso busquei por ferramentas que poderiam me ajudar e duas foram essenciais:
+   1. **cut** emite as partes selecionadas da linha de cada arquivo na saída;
+      - **-d** informa um caractere específico que vai servir de delimitador entre as partes.
+      - **-f1** faz com que apenas a primeira parte da mensagem (o IP) apareça na saída.
+   2. **sort** escreve de forma ordenada a saída do arquivo;
+      - **-u** elimina duplicatas de uma saída.
+```
+$ cut -d ' ' -f1 access.log | sort -u
+179.48.248.22
+185.153.176.43
+189.1.168.183
+5.253.115.36
+81.22.36.42
+```
+Eu poderia utilizar a ferramenta **wc -l**, como já fiz em desafios anteriores, que me retornaria a quantidade de linhas exata. Porém eu queria a informção de _quais_ IPs acessaram o servidor, e não apenas _quantos_.
+
+### 🚩 Flag
+`Flag: 5`
 
 ---
 ### Campeão de Acesso - 100 pts
+Qual foi o endereço IP que mais realizou acessos ao servidor web ?
+
 #### 🧭 Exploração
 ### 🚩 Flag
 
