@@ -407,7 +407,7 @@ $ cut -d ' ' -f1 access.log | sort -u
 5.253.115.36
 81.22.36.42
 ```
-Eu poderia utilizar a ferramenta **wc -l**, como já fiz em desafios anteriores, que me retornaria a quantidade de linhas exata. Porém eu queria a informção de _quais_ IPs acessaram o servidor, e não apenas _quantos_.
+Eu poderia utilizar também em conjunto a ferramenta **wc -l**, como já fiz em desafios anteriores, que me retornaria a quantidade de linhas exata. Porém eu queria a informção de _quais_ IPs acessaram o servidor, e não apenas _quantos_.
 
 ### 🚩 Flag
 `Flag: 5`
