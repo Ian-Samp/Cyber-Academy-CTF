@@ -461,7 +461,7 @@ As vezes a moral da história é: "esteja bem descansado, se quiser enfrentar o 
 Utilizando a base do WHOIS, qual é o e-mail de contato do abuse para o endereço IP que mais acessou o servidor web ?
 
 #### 🧭 Exploração
-Até este desafio não conhecia a ferramenta WHOIS. Acreditava se tratar de uma ferramenta de terminal assim como `grep`, `awk` ou `wc`, mas pesquisando descobri se tratar de um protocolo e banco de dados público e permite consultar endereços de IP e conseguir informações sobre seu ISP (provedor de internet).
+Até este desafio não conhecia a ferramenta WHOIS. Acreditava se tratar de uma ferramenta de terminal assim como `grep`, `awk` ou `wc`, mas pesquisando descobri se tratar de um protocolo e banco de dados público e permite consultar endereços de IP e conseguir informações sobre seu ISP (provedor de internet). Acessei o site [registro.br](https://registro.br/tecnologia/ferramentas/whois/) para pesquisar o IP `81.22.36.42`.
 
 ![](Prints/Pasted%20image%2020260729202908.png)
 
