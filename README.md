@@ -463,7 +463,7 @@ Utilizando a base do WHOIS, qual é o e-mail de contato do abuse para o endereç
 #### 🧭 Exploração
 Até este desafio não conhecia a ferramenta WHOIS. Acreditava se tratar de uma ferramenta de terminal assim como `grep`, `awk` ou `wc`, mas pesquisando descobri se tratar de um protocolo e banco de dados público e permite consultar endereços de IP e conseguir informações sobre seu ISP (provedor de internet).
 
-![](Print/Pasted%20image%2020260729202908.png)
+![](Prints/Pasted%20image%2020260729202908.png)
 
 ### 🚩 Flag
 `Flag: report@abuseradar.com`
