@@ -417,8 +417,46 @@ Eu poderia utilizar também em conjunto a ferramenta **wc -l**, como já fiz em 
 Qual foi o endereço IP que mais realizou acessos ao servidor web ?
 
 #### 🧭 Exploração
-### 🚩 Flag
+Para descobrir a quantidade de linhas que cada IP aparecia, utilizei os comandos `grep` e `wc -l` para cada IP, então comparei as saídas e pude descobrir quem realizou mais acessos.
+```
+grep 179.48.248.22 access.log | wc -l
+```
+```
+2190
+```
+```
+grep 185.153.176.43 access.log | wc -l
+```
+```
+154
+```
+```
+grep 189.1.168.183 access.log | wc -l
+```
+```
+33
+```
+```
+grep 5.253.115.36 access.log | wc -l
+```
+```
+2777
+```
+```
+grep 81.22.36.42 access.log | wc -l
+```
+```
+22669
+```
 
+Analisei os resultados, porém, por ser tarde da noite, não percebi imediatamente que o IP `81.22.36.42` possuia um dígito a mais que o IP `5.253.115.36`. O que resultou em uma tentativa errada. Analisei com mais calma, entendi o engano e tentei novamente.
+
+### 🚩 Flag
+As vezes a moral da história é: "esteja bem descansado, se quiser enfrentar o cibercrime!".
+
+`Flag: 81.22.36.42`
+
+---
 ### WHOIS 01 - 50 pts
 #### 🧭 Exploração
 
