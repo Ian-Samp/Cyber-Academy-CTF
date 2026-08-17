@@ -419,31 +419,31 @@ Qual foi o endereço IP que mais realizou acessos ao servidor web ?
 #### 🧭 Exploração
 Para descobrir a quantidade de linhas que cada IP aparecia, utilizei os comandos `grep` e `wc -l` para cada IP, então comparei as saídas e pude descobrir quem realizou mais acessos.
 ```
-grep 179.48.248.22 access.log | wc -l
+$ grep 179.48.248.22 access.log | wc -l
 ```
 ```
 2190
 ```
 ```
-grep 185.153.176.43 access.log | wc -l
+$ grep 185.153.176.43 access.log | wc -l
 ```
 ```
 154
 ```
 ```
-grep 189.1.168.183 access.log | wc -l
+$ grep 189.1.168.183 access.log | wc -l
 ```
 ```
 33
 ```
 ```
-grep 5.253.115.36 access.log | wc -l
+$ grep 5.253.115.36 access.log | wc -l
 ```
 ```
 2777
 ```
 ```
-grep 81.22.36.42 access.log | wc -l
+$ grep 81.22.36.42 access.log | wc -l
 ```
 ```
 22669
@@ -458,25 +458,42 @@ As vezes a moral da história é: "esteja bem descansado, se quiser enfrentar o 
 
 ---
 ### WHOIS 01 - 50 pts
-#### 🧭 Exploração
+Utilizando a base do WHOIS, qual é o e-mail de contato do abuse para o endereço IP que mais acessou o servidor web ?
 
-### WHOIS 02 - 50 pts
 #### 🧭 Exploração
+Até este desafio não conhecia a ferramenta WHOIS. Acreditava se tratar de uma ferramenta de terminal assim como `grep`, `awk` ou `wc`, mas pesquisando descobri se tratar de um protocolo e banco de dados público e permite consultar endereços de IP e conseguir informações sobre seu ISP (provedor de internet).
+
+![](Print/Pasted%20image%2020260729202908.png)
+
+### 🚩 Flag
+`Flag: report@abuseradar.com`
+
+---
+### WHOIS 02 - 50 pts
+Utilizando a base do WHOIS, a qual continente pertence o endereço IP que mais acessou o servidor web?
+
+#### 🧭 Exploração
+### 🚩 Flag
 
 ### Scan Web - 100 pts
 #### 🧭 Exploração
+### 🚩 Flag
 
 ### Varredura - 100 pts
 #### 🧭 Exploração
+### 🚩 Flag
 
 ### Atlantis - 50 pts
 #### 🧭 Exploração
+### 🚩 Flag
 
 ### Tipo de Atividade Ofensiva - 50 pts
 #### 🧭 Exploração
+### 🚩 Flag
 
 ### Cyber Kill Chain - 50 pts
 #### 🧭 Exploração
+### 🚩 Flag
 
 ---
 
