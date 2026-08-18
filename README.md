@@ -472,13 +472,32 @@ Até este desafio não conhecia a ferramenta WHOIS. Acreditava se tratar de uma 
 ### WHOIS 02 - 50 pts
 Utilizando a base do WHOIS, a qual continente pertence o endereço IP que mais acessou o servidor web?
 
-#### 🧭 Exploração
 ### 🚩 Flag
+`Flag: Europa`
 
+---
 ### Scan Web - 100 pts
-#### 🧭 Exploração
-### 🚩 Flag
+Aparentemente, o endereço IP 185.153.176.43 utilizou uma ferramenta de scan de vulnerabilidade web. Qual é a versão da ferramenta ?  
+Formato da resposta: 1.2.3
 
+#### 🧭 Exploração
+Antes de voltar para o terminal perguntei à Inteligência Artificial (Gemini) quais são as ferramentas de scan de vulnerabilidades mais comuns. 
+
+![](Prints/Pasted%20image%2020260729204357.png)
+
+Da lista conhecia apenas o `Burp Suite`, porém lembrei de ter lido a palavra `Nikto` em outro momento enquanto analisava os logs. Comecei a buscar pelo termo para garantir que não estava enganado.
+
+```
+$ grep 185.153.176.43 access.log | grep Nikto
+```
+O resultado é centenas de linhas com pequenas variações de:
+```
+81.22.36.42 - - [07/Nov/2022:00:30:48 +0000] "GET /gITn7HrJ.htaccess HTTP/1.1" 404 492 "-" "Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:map_codes)"
+```
+### 🚩 Flag
+`Flag: 2.1.6`
+
+---
 ### Varredura - 100 pts
 #### 🧭 Exploração
 ### 🚩 Flag
@@ -507,14 +526,33 @@ Utilizando a base do WHOIS, a qual continente pertence o endereço IP que mais a
 ---
 
 ### Comando de Instalação - 20 pts
+#### 🧭 Exploração
+### 🚩 Flag
 
+
+---
 ### O que o mestre mandar... - 50 pts
+#### 🧭 Exploração
+### 🚩 Flag
 
+
+---
 ### Mapeando a C2 inimiga - 50 pts
+#### 🧭 Exploração
+### 🚩 Flag
 
+
+---
 ### Métodos HTTP - 100 pts
+#### 🧭 Exploração
+### 🚩 Flag
 
+
+---
 ### Servidores Comprometidos - 100 pts
+#### 🧭 Exploração
+### 🚩 Flag
+
 
 ---
 ## 🚩 Conclusão
