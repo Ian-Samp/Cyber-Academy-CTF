@@ -499,9 +499,38 @@ O resultado é centenas de linhas com pequenas variações de:
 
 ---
 ### Varredura - 100 pts
-#### 🧭 Exploração
-### 🚩 Flag
+O endereço IP 81.22.36.42 utilizou uma ferramenta de varredura de arquivos e diretórios web. Qual o nome (caixa baixa, somente letras) dessa ferramenta ?
 
+#### 🧭 Exploração
+Aqui temos que tomar cuidado, pois o primeiro instinto é responder 'nikto' por conta do último desafio. Porém Nikto é uma ferramenta de varredura de **vulnerabilidades web**, e não de **arquivos e diretórios**! Vamos precisar do seguinte comando:
+```
+$ grep 81.22.36.42 access.log | awk -F'"' '{print $6}' | sort -u
+```
+```
+-
+feroxbuster/2.7.1
+Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:getinfo)
+Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:map_codes)
+Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:Port Check)
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0
+sqlmap/1.6.10#stable (https://sqlmap.org)
+
+```
+
+Por que esse comando funciona?
+- `grep`: Já vimos essa ferramenta diversas vezes até aqui, ela filtra linhas de um arquivo a partir de um termo. Neste caso, o IP;
+- `awk`: É uma ótima ferramtenta para escanear e processar diversas linhas de um arquivo, precisamos dela para separar os logs em "células";
+   - `-F`: Define um delimitador para o awk. Aqui o delimitador será a aspa dupla (");
+   - `'{print $6}'`: Avisa ao awk que queremos apenas a sexta célula, no caso, o _user-agent_;
+- `sort -u`: Outro velho conhecido, o sort organiza a saída dos comandos e o parâmetro obriga excluir linhas idênticas.
+
+Dessa forma só nos é retornado o _user-agent_, a parte que informa qual navegador ou ferramenta o usuário está utilizando para acessar o servidor, e por isso temos resultados como "Mozilla". Como quero apenas a ferramenta de varredura de arquivos/diretórios, com uma pesquisa rápida, para garantir, descubro que `feroxbuster` se trata exatamente de uma dessas ferramentas.
+
+### 🚩 Flag
+`Flag: feroxbuster`
+
+---
 ### Atlantis - 50 pts
 #### 🧭 Exploração
 ### 🚩 Flag
