@@ -53,7 +53,7 @@ Serão disponibilizadas dicas para cada desafio. As dicas podem ser requisitadas
 ---
 
 ## 🤝 Handshake!
-- [Retornar ao Sumário](#sumário)
+* [Retornar ao Sumário](#sumário)
 
 - 2.1. [SYN - Boas Vindas](#syn---boas-vindas---20-pts)
 - 2.2. [SYN/ACK - Conexão com a rede do Ficticious Bank](#synack---conexão-com-a-rede-do-ficticious-bank---20pts)
@@ -82,6 +82,8 @@ Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas 
 ---
 
 ## 🔐 Proteja suas senhas!
+* [Retornar ao Sumário](#sumário)
+
 - 3.1. [Identificando colaboradores](#identificando-colaboradores---50-pts)
 - 3.2. [Mapeando E-mails](#mapeando-e-mails---50-pts)
 - 3.3. [Padrão de e-mails](#padrão-de-e-mails---50-pts)
@@ -174,7 +176,7 @@ Como Martín e os outros colaboradores da Ficticious Bank poderiam melhorar suas
 ---
 
 ## 🎣 Investigando o phishing
-- [Retornar ao Sumário](#sumário)
+* [Retornar ao Sumário](#sumário)
 
 - 4.1. [E-mail suspeito](#e-mail-suspeito---50-pts)
 - 4.2. [Analisando e-mail com IA](#analisando-e-mail-com-ia---50-pts)
@@ -315,7 +317,7 @@ Podemos concluir que um incidente grave pode ser evitável quando as lideranças
 ---
 
 ## 🪵 Logs de um servidor web
-- [Retornar ao Sumário](#sumário)
+* [Retornar ao Sumário](#sumário)
 
 - 5.1. [Entradas no Log](#entradas-no-log---50-pts)
 - 5.2. [Primeiro Cliente](#primeiro-cliente---50-pts)
@@ -567,7 +569,7 @@ $ grep /atlantis access.log
 ---
 
 ## 🕹️ Comando e Controle (C2)
-- [Retornar ao Sumário](#sumário)
+* [Retornar ao Sumário](#sumário)
 
 - 6.1. [Comando de Instalação](#comando-de-instalação---20-pts)
 - 6.2. [O que o mestre mandar...](#o-que-o-mestre-mandar---50-pts)
@@ -608,4 +610,4 @@ $ grep /atlantis access.log
 
 ---
 ## 🚩 Conclusão
-- [Retornar ao Sumário](#sumário)
+* [Retornar ao Sumário](#sumário)
