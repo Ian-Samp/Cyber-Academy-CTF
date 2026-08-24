@@ -19,7 +19,7 @@
 ---
 
 ## 🔍 Introdução
-- [Retornar ao Sumário](#sumário)
+* [Retornar ao Sumário](#sumário)
 
 * 1.1. [Write-Up](#write-up)
 * 1.2. [Cenário](#cenário)
