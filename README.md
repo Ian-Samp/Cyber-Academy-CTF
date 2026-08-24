@@ -2,7 +2,7 @@
 
 > **Capture The Flag**  
 > **Data:** 07/2026  
-> **Categorias:** CSIRT, Phishing, Social Engeneering, Web Exploitation, Log Analysis
+> **Categorias:** CSIRT, Phishing, Social Engeneering, Web Exploitation, Log Analysis, API Rest
 
 ---
 
@@ -532,9 +532,23 @@ Dessa forma só nos é retornado o _user-agent_, a parte que informa qual navega
 
 ---
 ### Atlantis - 50 pts
-#### 🧭 Exploração
-### 🚩 Flag
+Qual é o horário (UTC) da primeira tentativa de acesso à URI "/atlantis" ? 
 
+#### 🧭 Exploração
+Com um simples comando `grep` encontramos as linhas que precisamos para determinar o horário exato:
+
+```
+$ grep /atlantis access.log
+```
+```
+5.253.115.36 - - [07/Nov/2022:00:25:35 +0000] "GET /atlantis HTTP/1.1" 404 437 "-" "feroxbuster/2.7.1"
+81.22.36.42 - - [07/Nov/2022:00:28:42 +0000] "GET /atlantis HTTP/1.1" 404 437 "-" "feroxbuster/2.7.1"
+```
+
+### 🚩 Flag
+`Flag: 00:25:35`
+
+---
 ### Tipo de Atividade Ofensiva - 50 pts
 #### 🧭 Exploração
 ### 🚩 Flag
