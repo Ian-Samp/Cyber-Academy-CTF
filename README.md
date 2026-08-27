@@ -568,7 +568,7 @@ Os fuzzers são mais eficazes na descoberta de vulnerabilidades que podem ser ex
 _Fontes: [GitLab](https://about.gitlab.com/pt-br/topics/devsecops/what-is-fuzz-testing/) e [Iron Linux](https://blog.ironlinux.com.br/enumeracao-de-arquivos-e-diretorios-com-feroxbuster/)_
 
 ### 🚩 Flag
-Minha primeira tentativa foi `Injeção de SQL`, mas ela estava incorreta, pois apesar de o fuzzing permitir identificar vulnerabilidades de SQL injection, a tática em si se trata de um `Ataque de Dicionário`.
+Minha primeira tentativa foi `Injeção de SQL`, mas ela estava incorreta, pois apesar de o fuzzing permitir identificar vulnerabilidades de SQL injection, a tática em si se trata de um Ataque de Dicionário.
 
 `Flag: Ataque de DIcionário`
 
