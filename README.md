@@ -559,9 +559,20 @@ $ grep /atlantis access.log
 
 ---
 ### Tipo de Atividade Ofensiva - 50 pts
-#### 🧭 Exploração
-### 🚩 Flag
+Com base nos dados do access.log, que tipo de atividade ofensiva o IP 5.253.115.36 está executando?
 
+#### 🧭 Exploração
+Ao analisar novamente as linhas que encontramos na última flag percebemos a assinatura do programa `feroxbuster/2.7.1`. Feroxbuster é uma ferramenta escrita em RUST que utiliza a técnica de fuzzing para realizar o ataque de `Forced Browsing`, onde a ferramenta visa enumerar recursos que não estão sendo utilizados pela aplicação mas podem ser acessados.
+
+Os fuzzers são mais eficazes na descoberta de vulnerabilidades que podem ser exploradas por ataques como injeção de SQL.                                                                                                                                                                    
+_Fontes: [GitLab](https://about.gitlab.com/pt-br/topics/devsecops/what-is-fuzz-testing/) e [Iron Linux](https://blog.ironlinux.com.br/enumeracao-de-arquivos-e-diretorios-com-feroxbuster/)_
+
+### 🚩 Flag
+Minha primeira tentativa foi `Injeção de SQL`, mas ela estava incorreta, pois apesar de o fuzzing permitir identificar vulnerabilidades de SQL injection, a tática em si se trata de um `Ataque de Dicionário`.
+
+`Flag: Ataque de DIcionário`
+
+---
 ### Cyber Kill Chain - 50 pts
 #### 🧭 Exploração
 ### 🚩 Flag
