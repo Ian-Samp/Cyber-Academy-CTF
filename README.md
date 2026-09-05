@@ -348,7 +348,7 @@ Antes de continuar, acessei o link para referência para aprender sobre formatos
 
 ![](Prints/Pasted%20image%2020260729155917.png)
 
-Tentei utilizar a ferramenta de busca do navegador (CRTL + F). A primeira vista, parecia que todas as requisições ao servidor se tratavam de GET, então pesquisei pelo termo "_GET_" para descobrir a quantidade de linhas.
+Tentei utilizar a ferramenta de busca do navegador (CTRL + F). À primeira vista, parecia que todas as requisições ao servidor se tratavam de GET, então pesquisei pelo termo "_GET_" para descobrir a quantidade de linhas.
 
 ![](Prints/Pasted%20image%2020260729161126.png)
 
@@ -416,7 +416,7 @@ $ cut -d ' ' -f1 access.log | sort -u
 5.253.115.36
 81.22.36.42
 ```
-Eu poderia utilizar também em conjunto a ferramenta **wc -l**, como já fiz em desafios anteriores, que me retornaria a quantidade de linhas exata. Porém eu queria a informção de _quais_ IPs acessaram o servidor, e não apenas _quantos_.
+Eu poderia utilizar também em conjunto a ferramenta **wc -l**, como já fiz em desafios anteriores, que me retornaria a quantidade de linhas exata. Porém eu queria a informação de _quais_ IPs acessaram o servidor, e não apenas _quantos_.
 
 ### 🚩 Flag
 `Flag: 5`
@@ -461,7 +461,7 @@ $ grep 81.22.36.42 access.log | wc -l
 Analisei os resultados, porém, por ser tarde da noite, não percebi imediatamente que o IP `81.22.36.42` possuia um dígito a mais que o IP `5.253.115.36`. O que resultou em uma tentativa errada. Analisei com mais calma, entendi o engano e tentei novamente.
 
 ### 🚩 Flag
-As vezes a moral da história é: "esteja bem descansado, se quiser enfrentar o cibercrime!".
+Às vezes a moral da história é: "esteja bem descansado, se quiser enfrentar o cibercrime!".
 
 `Flag: 81.22.36.42`
 
@@ -499,7 +499,7 @@ Da lista conhecia apenas o `Burp Suite`, porém lembrei de ter lido a palavra `N
 ```
 $ grep 185.153.176.43 access.log | grep Nikto
 ```
-O resultado é centenas de linhas com pequenas variações de:
+A saída resulta em centenas de linhas com pequenas variações de:
 ```
 81.22.36.42 - - [07/Nov/2022:00:30:48 +0000] "GET /gITn7HrJ.htaccess HTTP/1.1" 404 492 "-" "Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:map_codes)"
 ```
@@ -529,7 +529,7 @@ sqlmap/1.6.10#stable (https://sqlmap.org)
 
 Por que esse comando funciona?
 - `grep`: Já vimos essa ferramenta diversas vezes até aqui, ela filtra linhas de um arquivo a partir de um termo. Neste caso, o IP;
-- `awk`: É uma ótima ferramtenta para escanear e processar diversas linhas de um arquivo, precisamos dela para separar os logs em "células";
+- `awk`: É uma ótima ferramenta para escanear e processar diversas linhas de um arquivo, precisamos dela para separar os logs em "células";
    - `-F`: Define um delimitador para o awk. Aqui o delimitador será a aspa dupla (");
    - `'{print $6}'`: Avisa ao awk que queremos apenas a sexta célula, no caso, o _user-agent_;
 - `sort -u`: Outro velho conhecido, o sort organiza a saída dos comandos e o parâmetro obriga excluir linhas idênticas.
@@ -564,13 +564,14 @@ Com base nos dados do access.log, que tipo de atividade ofensiva o IP 5.253.115.
 #### 🧭 Exploração
 Ao analisar novamente as linhas que encontramos na última flag percebemos a assinatura do programa `feroxbuster/2.7.1`. Feroxbuster é uma ferramenta escrita em RUST que utiliza a técnica de fuzzing para realizar o ataque de `Forced Browsing`, onde a ferramenta visa enumerar recursos que não estão sendo utilizados pela aplicação mas podem ser acessados.
 
-Os fuzzers são mais eficazes na descoberta de vulnerabilidades que podem ser exploradas por ataques como injeção de SQL.                                                                                                                                                                    
+Os fuzzers são mais eficazes na descoberta de vulnerabilidades que podem ser exploradas por ataques como injeção de SQL.
+
 _Fontes: [GitLab](https://about.gitlab.com/pt-br/topics/devsecops/what-is-fuzz-testing/) e [Iron Linux](https://blog.ironlinux.com.br/enumeracao-de-arquivos-e-diretorios-com-feroxbuster/)_
 
 ### 🚩 Flag
 Minha primeira tentativa foi `Injeção de SQL`, mas ela estava incorreta, pois apesar de o fuzzing permitir identificar vulnerabilidades de SQL injection, a tática em si se trata de um Ataque de Dicionário.
 
-`Flag: Ataque de DIcionário`
+`Flag: Ataque de Dicionário`
 
 ---
 ### Cyber Kill Chain - 50 pts
@@ -590,7 +591,7 @@ Para entender em que etapa o IP `81.22.36.42` está precisamos analisar as pista
    1. Feroxbuster
    2. Nikto
 
-Uma se trata de uma ferramenta de varredura de arquivos e diretórios web, e a outra é realiza varreduras atrás de vulnerabilidades web. Já percebemos um padrão aqui, se o objetivo das ações é realizar uma **varredura**, então certamente se trata da etapa de **reconhecimento**.
+Uma se trata de uma ferramenta de varredura de arquivos e diretórios web, e a outra realiza varreduras atrás de vulnerabilidades web. Já percebemos um padrão aqui, se o objetivo das ações é realizar uma **varredura**, então certamente se trata da etapa de **reconhecimento**.
 
 ### 🚩 Flag
 `Flag: Reconhecimento`
