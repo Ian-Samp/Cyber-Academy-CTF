@@ -14,7 +14,7 @@
 4. [🎣 Investigando o phishing](#-investigando-o-phishing)
 5. [🪵 Logs de um servidor web](#-logs-de-um-servidor-web)
 6. [🕹️ Comando e Controle (C2)](#️-comando-e-controle-c2)
-7. [🚩 Conclusão](#-conclusão)
+7. [🏁 Conclusão](#-conclusão)
 
 ---
 
@@ -574,8 +574,26 @@ Minha primeira tentativa foi `Injeção de SQL`, mas ela estava incorreta, pois 
 
 ---
 ### Cyber Kill Chain - 50 pts
+Considerando o modelo Cyber Kill Chain, em qual fase podemos enquadrar as atividades do IP `81.22.36.42` ?
+
 #### 🧭 Exploração
+Cyber Kill Chain é um modelo que se propõe a dissecar um ataque cibernético em 7 passos, com a noção de que quebrar um elo da "corrente" do ataque pode impedir um incidente. As fases do ataque são:
+- Reconnaissance: reconhecimento e coleta de informações sobre o alvo;
+- Weaponization: desenvolvimento da "arma" (um malware, site malicioso, email de phishing, etc...);
+- Delivery: entrega da "arma" desenvolvida;
+- Exploitation: efetivamente ganhando acesso sobre a vítima;
+- Installation: instalação de backdoor sobre a vítima;
+- C2: comando e controle do alvo;
+- Actions and Objectives: alcance do objetivo final do ataque.
+
+Para entender em que etapa o IP `81.22.36.42` está precisamos analisar as pistas que temos até agora. Duas ferramentas em especial estão sendo utilizadas:
+   1. Feroxbuster
+   2. Nikto
+
+Uma se trata de uma ferramenta de varredura de arquivos e diretórios web, e a outra é realiza varreduras atrás de vulnerabilidades web. Já percebemos um padrão aqui, se o objetivo das ações é realizar uma **varredura**, então certamente se trata da etapa de **reconhecimento**.
+
 ### 🚩 Flag
+`Flag: Reconhecimento`
 
 ---
 
@@ -620,5 +638,5 @@ Minha primeira tentativa foi `Injeção de SQL`, mas ela estava incorreta, pois 
 
 
 ---
-## 🚩 Conclusão
+## 🏁 Conclusão
 * [Retornar ao Sumário](#sumário)
