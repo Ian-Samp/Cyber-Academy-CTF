@@ -2,7 +2,7 @@
 
 > **Capture The Flag**  
 > **Data:** 07/2026  
-> **Categorias:** CSIRT, Phishing, Social Engeneering, Web Exploitation, Log Analysis, API Rest
+> **Categorias:** CSIRT, Phishing, Social Engineering, Web Exploitation, Log Analysis, API Rest
 
 ---
 
@@ -70,7 +70,7 @@ Para validar a sua conexão com a rede do Ficticious Bank, siga as etapas a segu
 2 - Acesse a página https://www.ficticiousbank.com 
 3 - A flag de resposta desse desafio estará na página inicial e no título da página
 #### 🧭 Exploração
-Abrindo o link da Fictious Bank, nos deparamos com a Flag na página inicial:
+Abrindo o link da Ficticious Bank, nos deparamos com a Flag na página inicial:
 
 ![](Prints/Pasted%20image%2020260729014843.png)
 
@@ -93,7 +93,7 @@ Este primeiro grupo de desafios foram só para apresentar o CTF. Estamos apenas 
 ### Identificando colaboradores - 50 pts
 Navegue por todos os links do site do Ficticious Bank (https://www.ficticiousbank.com) e identifique os dados dos colaboradores que constam no site. Quantos colaboradores (chefes, executivos, especialistas) você identificou no total? Padrão de resposta: XX (Ex. 99)
 #### 🧭 Exploração
-Colei o link indicado na URL e naveguei por todos os links clicáveis no site, prestando atenção em qualquer menção à colaboradores.
+Colei o link indicado na URL e naveguei por todos os links clicáveis no site, prestando atenção em qualquer menção a colaboradores.
 Em um dos links encontrei:  
 
 ![](Prints/Pasted%20image%2020260729015402.png)
@@ -123,7 +123,7 @@ Abaixo do perfil de cada colaborador temos um ícone de cartão de negócios. Pa
 Pelos e-mails identificados, qual seria o provável e-mail do CEO do Ficticious Bank?  
 Padrão de resposta: xxxxxxx@xxxxx.xxxxx
 #### 🧭 Exploração
-Analisando os e-mails disponíveis na página, um padrão é faciilmente identificável. Todos os caloboradores possuem o e-mail que segue a estrutura:  
+Analisando os e-mails disponíveis na página, um padrão é facilmente identificável. Todos os colaboradores possuem o e-mail que segue a estrutura:  
 `primeiro_nome.segundo_nome@ficticiousbank.com`
 #### 🚩 Flag
 Além de qualquer visitante do site ter acesso aos e-mails corporativos da empresa, os e-mails não divulgados podem ser deduzidos, incluindo do próprio CEO José Fernandes. Essa prática abre brecha para que um atacante faça uso de táticas de phishing mais avançadas, como o Spear Phishing, como iremos ver mais adiante. 
@@ -165,10 +165,10 @@ Já possuo o endereço de e-mail corporativo de Martín Dias, então tento ele e
 
 Identifiquei a mensagem suspeita com o assunto indicado logo no topo da caixa de e-mail. 
 #### 🚩 Flag
-Mesmo que a senha de Matín (_kRzM36SU9e_) não seja fraca ou previsível, a sua força é minimizada quando ele repete esta mesma senha em vários serviços.
+Mesmo que a senha de Martín (_kRzM36SU9e_) não seja fraca ou previsível, a sua força é minimizada quando ele repete esta mesma senha em vários serviços.
 Como Martín e os outros colaboradores da Ficticious Bank poderiam melhorar suas senhas:
 1. A senha atual de Martín utiliza letras maiúsculas, minúsculas e números. Isto já é bom, mas caracteres especiais (!@#$%) ou uma senha maior poderiam torná-la ótima;
-2. Utilizar MFA (autentificação em múltiplos fatores);
+2. Utilizar MFA (autenticação em múltiplos fatores);
 3. O principal: não reutilizar a mesma senha. O ideal seria possuir um gerenciador de senhas seguro (evitando os gerenciadores presentes em navegadores) com uma única senha poderosa, enquanto outros serviços possuem senhas aleatórias ou outros meios de autenticação.
 
 `Flag: seg.info@secure-auth-portal.com`
@@ -194,7 +194,7 @@ Sim, mesmo falando várias e várias vezes sobre os riscos de usar senhas repeti
 
 **Target:** https://webmail.ficticiousbank.com
 #### 🚩 Flag
-O atacante utiliza a tática de criar sensção urgência para diminuir o senso crítico do alvo:
+O atacante utiliza a tática de criar sensação de urgência para diminuir o senso crítico do alvo:
 - "Ação Urgente"
 - "imediatamente"
 - "dentro de 24 horas"
@@ -213,7 +213,7 @@ Explorando a caixa de mensagens enviadas pelo e-mail de Martín encontramos a se
 A URL aparente parece levar para um portal oficial do setor de RH do banco, mas analisando o link real encontramos algo mais suspeito:  
 https://m2va8hds01.execute-api.us-east-1.amazonaws.com/
 #### 🚩 Flag
-É interessante notar como todo esta cadeia de ataque poderia ter sido quebrada e evitada se Martín apenas seguisse a política de senhas da organização ou as práticas que detalhei em [3.5. Reutilização de senhas](#reutilização-de-senhas---50-pts).  
+É interessante notar como toda esta cadeia de ataque poderia ter sido quebrada e evitada se Martín apenas seguisse a política de senhas da organização ou as práticas que detalhei em [3.5. Reutilização de senhas](#reutilização-de-senhas---50-pts).  
 Importante destacar que isso não faz de Martín "culpado" pelo incidente, mas precisamos entender onde houve a falha para evitar um evento futuro. Vamos nos aprofundar neste assunto em breve.
 
 `Flag: m2va8hds01.execute-api.us-east-1.amazonaws.com`
