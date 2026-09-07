@@ -610,7 +610,13 @@ Uma se trata de uma ferramenta de varredura de arquivos e diretórios web, e a o
 ---
 
 ### Comando de Instalação - 20 pts
+Durante a investigação dos e-mails de phishing enviados pelo grupo P3PP4 H4CK3RS, foi possível identificar que um dos colaboradores executou uma ação que enviou uma requisição aos servidores dos atacantes e recebeu os comandos que foram executados para instalar um provável agente para se comunicar com a central de Comando e Controle (C2). Aparentemente, não é possível recuperar o comando executado pela máquina pois a url utilizada pelos atacantes está retornando uma mensagem genérica. Interaja com a url do comando executado pelo colaborador do Banco Ficticious e responda: Com base na mensagem retornada, qual das alternativas abaixo é a provável linha de ação adotada pelos atacantes para garantir a persistência do acesso?
+
+**Target:** https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/default/install/MQ-2501
+
 #### 🧭 Exploração
+
+
 ### 🚩 Flag
 
 
