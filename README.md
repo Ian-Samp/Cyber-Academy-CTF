@@ -615,10 +615,19 @@ Durante a investigação dos e-mails de phishing enviados pelo grupo P3PP4 H4CK3
 **Target:** https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/default/install/MQ-2501
 
 #### 🧭 Exploração
+A URL disponibilizada pelo desafio leva para a seguinte página:
 
+![](Prints/Pasted%20image%2020260730121333.png)
+
+Vemos apenas esta mensagem simples e nada de relevante na inspeção. Mas algo que chama atenção é a Path da URL `/default/install/MQ-2501`. Ao apagar o caminho, chegamos à seguinte página:
+
+https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/
+![](Prints/Pasted%20image%2020260730122440.png)
+
+Antes de retornar para a flag, passei mais um bom tempo analisando o site, tentando adivinhar outros diretórios por meio de técnicas de forced browser e inspecionando ambas as páginas. Após vários minutos de busca sem identificar uma nova informação, voltei às alternativas de flag e marquei a que se enquadrava ao cenário do ataque.
 
 ### 🚩 Flag
-
+`Flag: Configuração de um serviço malicioso na máquina alvo para execução do agente`
 
 ---
 ### O que o mestre mandar... - 50 pts
