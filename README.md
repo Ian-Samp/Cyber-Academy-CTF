@@ -631,9 +631,25 @@ Antes de retornar para a flag, passei mais um bom tempo analisando o site, tenta
 
 ---
 ### O que o mestre mandar... - 50 pts
-#### 🧭 Exploração
-### 🚩 Flag
+Nosso time de investigação analisou a máquina do usuário comprometido e identificou o seguinte comportamento: 
+- A cada 1 minuto, uma requisição HTTP era enviada para https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/default/command/MQ-2501 
+- Esta requisição retornava uma resposta que era salva na variável $COMANDORECEBIDO 
+- Em seguida, o script executava o seguinte código: "echo $COMANDORECEBIDO | base64 -d | bash"
 
+Qual o comando que a C2 está enviando para a Máquina Comprometida? A flag estará no formato GoHacking{XXXXXXXX}
+
+#### 🧭 Exploração
+O link fornecido leva a uma página branca com apenas uma mensagem codificada:
+```
+ZWNobyAnVmMgZW5jb250cm91IG1ldXMg8J+Qt/CfkLfwn5C38J+Qt/CfkLchIEdvSGFja2luZ3tDMkNvbVNlcnZpY29NYWxpY2lvc299Jw==
+```
+Por se tratar claramente de uma mensagem codificada, busquei por decodificadores online. Na descrição do desafio há uma menção ao script executado, onde aparece o termo "base64" como um dos comandos, então estava evidente que a mensagem estaria codificada sob a forma de `Base64`. Decodificando, obtemos a seguinte mensagem:
+```
+echo 'Vc encontrou meus 🐷🐷🐷🐷🐷! GoHacking{C2ComServicoMalicioso}'
+```
+
+### 🚩 Flag
+`Flag: GoHacking{C2ComServicoMalicioso}`
 
 ---
 ### Mapeando a C2 inimiga - 50 pts
