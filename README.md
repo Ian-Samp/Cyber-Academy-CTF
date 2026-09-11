@@ -643,7 +643,7 @@ O link fornecido leva a uma página branca com apenas uma mensagem codificada:
 ```
 ZWNobyAnVmMgZW5jb250cm91IG1ldXMg8J+Qt/CfkLfwn5C38J+Qt/CfkLchIEdvSGFja2luZ3tDMkNvbVNlcnZpY29NYWxpY2lvc299Jw==
 ```
-Por se tratar claramente de uma mensagem codificada, busquei por decodificadores online. Na descrição do desafio há uma menção ao script executado, onde aparece o termo "base64" como um dos comandos, então estava evidente que a mensagem estaria codificada sob a forma de `Base64`. Decodificando, obtemos a seguinte mensagem:
+Na descrição do desafio há uma menção ao script executado, onde aparece o termo "base64" como um dos comandos, então podemos deduzir que a mensagem está codificada sob a forma de `Base64`. Busquei por decodificadores online e obtive a seguinte mensagem:
 ```
 echo 'Vc encontrou meus 🐷🐷🐷🐷🐷! GoHacking{C2ComServicoMalicioso}'
 ```
