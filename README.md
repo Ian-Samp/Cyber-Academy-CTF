@@ -653,9 +653,30 @@ echo 'Vc encontrou meus 🐷🐷🐷🐷🐷! GoHacking{C2ComServicoMalicioso}'
 
 ---
 ### Mapeando a C2 inimiga - 50 pts
-#### 🧭 Exploração
-### 🚩 Flag
+Depois de identificar a url da C2 utilizada pelo grupo P3PP4 H4CK3RS, percebemos que ela funciona como uma espécie de api para outras funcionalidades desenvolvidas pelo grupo. Mas aparentemente eles estão utilizando endpoints com caracteres sem sentido para esconder estas funcionalidades, conseguimos encontrar um endpoint 'válido, porém, está bem complicado entender o conteúdo da resposta. Endpoint válido encontrado: https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/version  
+A flag está no formato GoHacking{XXXXXXXX}, mas precisará ser decifrada.
 
+Target: https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/version
+
+#### 🧭 Exploração
+Quando abrimos a URL disponibilizada encontramos uma página `JSON` com uma longa mensagem codificada:
+```
+47 6f 48 61 63 6b 69 6e 67 7b 41 70 69 44 65 43 6f 6e 74 72 6f 6c 65 41 74 69 76 6f 73 43 6f 6d 70 72 6f 6d 65 74 69 64 6f 73 7d 0a 41 20 64 6f 63 75 6d 65 6e 74 61 e7 e3 6f 20 64 61 20 61 70 69 20 65 73 74 e1 20 65 6d 20 2f 61 70 69 2f 6c 6b 61 73 6a 64 6c 6b 73 6a 64 66 6c 6b 6a
+```
+Podemos identificar rapidamente que se trata de uma mensagem escondida em hexadecimal por conta das seguintes características do texto:
+- Duplas de caracteres, podendo cada dupla possuir tanto números quanto letras
+- Números que vão de `0` a `9`
+- Letras que vão de `a` a `f`
+
+Isso acontece porque o sistema hexadecimal (base 16) utiliza apenas 16 símbolos (10 números e 6 letras) para retratar um dado, onde cada dupla representa 1 byte (8 bits) de informação.
+
+Utilizando um decodificador online de hexadecimal, obtemos:
+```
+GoHacking{ApiDeControleAtivosComprometidos}
+A documentação da api está em /api/lkasjdlksjdflkj
+```
+### 🚩 Flag
+`Flag: GoHacking{ApiDeControleAtivosComprometidos}`
 
 ---
 ### Métodos HTTP - 100 pts
