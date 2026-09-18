@@ -680,9 +680,55 @@ A documentação da api está em /api/lkasjdlksjdflkj
 
 ---
 ### Métodos HTTP - 100 pts
-#### 🧭 Exploração
-### 🚩 Flag
+Pelo que vimos no desafio anterior, a API possui um endpoint de documentação. Tente enviar requisições HTTP para esse endpoint e descobrir o que tem de útil nessa documentação. Lembre-se que existem outros métodos HTTP além de GET e POST
 
+**Target:** https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/ENDPOINT-DA-DOCUMENTACAO
+
+#### 🧭 Exploração
+Junto da flag que encontramos [no último desafio](#mapeando-a-c2-inimiga---50-pts) havia a mensagem: `A documentação da api está em /api/lkasjdlksjdflkj`. Vamos alterar a URL alvo que foi disponibilizada para encontrar o endpoint da documentação.
+
+Mas apenas digitando a URL `https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/lkasjdlksjdflkj` na barra de pesquisa não resulta em uma página válida.
+<img width="500" height="252" alt="image" src="https://github.com/user-attachments/assets/b68f5d5e-f306-419b-beed-209d98bb604b" />
+
+Precisamos usar a dica que foi fornecida na descrição do desafio: **"Lembre-se que existem outros métodos HTTP além de GET e POST"**. Quando pesquisamos uma URL na barra de pesquisa estamos enviando uma requisição GET para o servidor que queremos acessar, mas existem vários outros tipos de requisição. Os principais são:
+
+- GET: solicita e lê dados da requisição.
+- POST: envia novos dados para a requisição.
+- PUT: substitui/atualiza dados da requisição.
+- DELETE: deleta dados da requisição.
+- PATCH: modifica parcialmente os dados da requisição.
+
+Há ainda outros métodos avançados como OPTIONS ou HEAD, mas vamos tentar os principais primeiro. Sabemos que não há resposta para o GET, e podemos deduzir com base na dica que o POST não terá nehuma pista. Podemos utilizar o comando `curl` para testar outras requisições rapidamente pelo terminal, com o parâmetro `-X` conseguimos pedir uma requisição diferente de GET.
+
+```
+$ curl -X [requisição] https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/lkasjdlksjdflkj
+```
+
+Ao tentar PUT ou DELETE recebemos a mensagem:
+```
+{"message":"Not Found"}
+```
+
+Mas ao tentar a requisição PATCH, o servidor retorna a seguinte mensagem codificada:
+```
+R29IYWNraW5ne0RvY0FwMVAzUFA0SDRDSzNSNSF9Ck1hbm9zLCBmaXogZXNzYSBhcGkgcHJhIGdlbnRlIHBlZ2FyIGEgdmlz428gZG9zIGF0aXZvcyBjb21wcm9tZXRpZG9zIG5hIHJlZGUuCk1hcyBzZSBsaWdhIHEgdG8gcm9kYW5kbyBuYXF1ZWxhIGxhbWJkYSBtYXJvdGEgZGEgYXdzLCBlbnTjbyBuZW0gdmFpIHRlciBjdXN0byBwcmEgZ2VudGUuLi4gZWggbm9pcyEKCkdFVCAgL2FwaS9vcmF0b3JvZXVhcm91cGFkb3JlaWRlcm9tYS9saXN0IC0gbGlzdGEgb3MgYXRpdm9zIGNvbXByb21ldGlkb3MKUE9TVCAvYXBpL29yYXRvcm9ldWFyb3VwYWRvcmVpZGVyb21hL3N0YXR1cyAtIHJldG9ybmEgc2UgYSB0cmV0YSB0YSByb2RhbmRvIAp7aXA6ImlwIGRvIGVzcXVlbWEifQoKaGFja2luZyBmb3JldmVyISEh
+```
+
+Se trata de mais uma mensagem codificada em base64. Com o auxilio de um decodificador online, obtemos:
+```
+GoHacking{DocAp1P3PP4H4CK3R5!}
+Manos, fiz essa api pra gente pegar a viso dos ativos comprometidos na rede.
+Mas se liga q to rodando naquela lambda marota da aws, ento nem vai ter custo pra gente... eh nois!
+
+GET  /api/oratoroeuaroupadoreideroma/list - lista os ativos comprometidos
+POST /api/oratoroeuaroupadoreideroma/status - retorna se a treta ta rodando 
+{ip:"ip do esquema"}
+
+hacking forever!!!
+```
+
+### 🚩 Flag
+`Flag: GoHacking{DocAp1P3PP4H4CK3R5!}`
 
 ---
 ### Servidores Comprometidos - 100 pts
