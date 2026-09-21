@@ -732,10 +732,50 @@ hacking forever!!!
 
 ---
 ### Servidores Comprometidos - 100 pts
-#### 🧭 Exploração
-### 🚩 Flag
+Explore os endpoints desta API para descobrir os servidores internos que foram comprometidos. Procure a flag em um desses endpoints.
 
+**Target:** https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/
+
+#### 🧭 Exploração
+Na flag do desafio anterior descobrimos dois endpoints: um com a lista dos ativos comprometidos e outro que deve retornar o status da "treta".
+
+- Enviando uma requisição para o endpoint `/api/oratoroeuaroupadoreideroma/list` com método GET é retornado a lista em JSON com dois ativos e a flag do desafio:
+```
+$ curl https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/oratoroeuaroupadoreideroma/list
+```
+```
+[
+   {"server":"Servidor logs - logs.ficticiousbank.com","ip":"192.168.48.29"},
+   {"server":"Servidor OCS - ocs.ficticiousbank.com","ip":"192.168.48.37"},
+   {"flag":"GoHacking{TavaBomMasTavaRuimAgoraTaPiorMasMelhorou}"}
+]
+```
+
+- Tentando acessar o endpoint `/api/oratoroeuaroupadoreideroma/status` com POST, passando os parâmetros que conseguimos no endpoint anterior, há como retorno apenas um erro:
+```
+$ curl -X POST https://gh4m3sz9t6.execute-api.us-east-1.amazonaws.com/api/oratoroeuaroupadoreideroma/status -H "Content-Type: application/json" -d '{"server":"Servidor logs - logs.ficticiousbank.com","ip":"192.168.48.29"}'
+```
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>SyntaxError: Unexpected token o in JSON at position 1<br> &nbsp; &nbsp;at JSON.parse (&lt;anonymous&gt;)<br> &nbsp; &nbsp;at /var/task/routes/api.js:42:14<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/var/task/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at next (/var/task/node_modules/express/lib/router/route.js:137:13)<br> &nbsp; &nbsp;at getBasePath (/var/task/middleware/getBasePath.js:8:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/var/task/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at next (/var/task/node_modules/express/lib/router/route.js:137:13)<br> &nbsp; &nbsp;at Route.dispatch (/var/task/node_modules/express/lib/router/route.js:112:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/var/task/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at /var/task/node_modules/express/lib/router/index.js:281:22</pre>
+</body>
+</html>
+```
+
+### 🚩 Flag
+O erro se trata de uma falha de implementação da API pelos desenvolvedores da `P3PP4H4CK3R5`, mas as informações realmente importantes para concluir nossa investigação (quais ativos foram comprometidos) já foram obtidas, juntamente com a última flag do CTF.
+
+`Flag: GoHacking{TavaBomMasTavaRuimAgoraTaPiorMasMelhorou}`
 
 ---
 ## 🏁 Conclusão
 * [Retornar ao Sumário](#sumário)
+
+### Minha Conquista e Experiência
+Finalizei o CTF Cyber Academy 2026 no dia 30 de Julho, conquistando a 15ª posição dentre mais de 800 participantes. Foi uma experiência extremamente divertida que conduziu a adquirir um conhecimento mais amplo sobre API Rest, Terminal Linux, OSINT, Análise de Logs e, claro, documentação de write-ups, de forma muito leve e divertida.
