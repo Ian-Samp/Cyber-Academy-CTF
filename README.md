@@ -2,7 +2,7 @@
 
 > **Capture The Flag**  
 > **Data:** 07/2026  
-> **Categorias:** CSIRT, Phishing, Social Engineering, Web Exploitation, Log Analysis, API Rest
+> **Categorias:** CSIRT, OSINT, Phishing, Social Engineering, Web Exploitation, Log Analysis, API Rest, Criptografia, C2, Cyber Kill Chain
 
 ---
 
@@ -777,7 +777,12 @@ O erro se trata de uma falha de implementação da API pelos desenvolvedores da 
 ## 🏁 Conclusão
 * [Retornar ao Sumário](#sumário)
 
+### Principais Recomendações para o Ficticious Bank
+Com base em toda a investigação realizada, as principais ações defensivas recomendadas para a organização incluem:
+- **Gestão de Identidade e Cultura de Segurança:** Implementação obrigatória de MFA em todas as aplicações (webmail e sistemas internos) e estabelecimento de uma política de reporte de incidentes não-punitiva, evitando que colaboradores sejam chantageados por engenharia social.
+- **Monitoramento contínuo:** Implementação de regras de detecção no SIEM/CSIRT para identificar ferramentas automatizadas de recon (como *Nikto* e *Feroxbuster*) e requisições suspeitas para infraestruturas de C2 em nuvem.
+
 ### Minha Conquista e Experiência
-Finalizei o CTF Cyber Academy 2026 no dia 30 de Julho, conquistando a 15ª posição dentre mais de 800 participantes. Foi uma experiência extremamente divertida que conduziu a adquirir um conhecimento mais amplo sobre API Rest, Terminal Linux, OSINT, Análise de Logs e, claro, documentação de write-ups, de forma muito leve e divertida.
+Finalizei o CTF Cyber Academy 2026 no dia 30 de Julho, conquistando a 15ª posição dentre mais de 800 participantes. Foi uma experiência extremamente divertida que me permitiu aprofundar e colocar em prática conhecimentos em API Rest, Terminal Linux, OSINT, Criptografia, Análise de Logs e, claro, documentação de write-ups.
 
 ![](Prints/Pasted%20image%2020260730135104.png)
